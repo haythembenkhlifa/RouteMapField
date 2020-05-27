@@ -13,8 +13,6 @@ import 'here-js-api/scripts/mapsjs-ui';
 import 'here-js-api/scripts/mapsjs-mapevents';
 import 'here-js-api/scripts/mapsjs-clustering';
 
-
-
 export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
     data() {
