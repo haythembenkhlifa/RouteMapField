@@ -2,7 +2,7 @@
 
 Route Map Larvel Nova Field (Build on top of Here Maps Api)
 
-### Installing
+### Installation
  
 
 composer require haythem/route-map-field
