@@ -1506,7 +1506,7 @@ var render = function() {
     _c("div", {
       ref: "panel",
       staticClass: "mt-4",
-      staticStyle: { "margin-left": "-2.75rem" }
+      staticStyle: { "margin-left": "-5%" }
     })
   ])
 }
@@ -29343,7 +29343,7 @@ var render = function() {
       _c("div", {
         ref: "panel",
         staticClass: "mt-4",
-        staticStyle: { "margin-left": "-2.75rem" }
+        staticStyle: { "margin-left": "-5%" }
       })
     ]
   )

@@ -2,7 +2,7 @@
     <div class="mt-4 mb-4">
     <h4 class="font-normal text-80 mb-2">Route Map</h4>
     <div ref="map" class="rounded-sm" style="height:600px;width:100%;"></div>
-    <div ref="panel" class="mt-4" style="margin-left: -2.75rem;"></div>
+    <div ref="panel" class="mt-4" style="margin-left: -5%;"></div>
     </div>
 </template>
 
