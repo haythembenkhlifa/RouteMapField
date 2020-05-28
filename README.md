@@ -27,7 +27,7 @@ composer require haythem/route-map-field
 
                     RouteMapField::make('route')
                       ->gpsPoints($points)
-                      ->apikey('mEdMOJyTw4MSyoo_buAPWngRK0bmd_qxVx5sonBLz2c')
+                      ->apikey('your-api-key')
                       //->svgMarker('')
                       ->showSummary(true),
                       //->showManuevers(true),
