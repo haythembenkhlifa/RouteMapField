@@ -21,7 +21,6 @@ composer require haythem/route-map-field
             '{"lat":"-34.08988480","lon":"18.46012480","description":"Ilke Kemp (INV - FF0596)"}',
             '{"lat":"-34.06624000","lon":"18.43453000","description":"Lisa Vosloo (INV - FF0594)"}',
             '{"lat":"-34.04468320","lon":"18.44628980","description":"Nic Wides (INV - FF0598)"}',
-
             ];
             
         //minimum number of points is two
@@ -36,4 +35,4 @@ composer require haythem/route-map-field
 
 ## Result
 
-![](result.png)
+![](result.PNG)
