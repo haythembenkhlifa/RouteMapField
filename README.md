@@ -1,6 +1,6 @@
 # Project Title
 
-Route Map Larvel Nova Field (Buil on top of Here Maps Api)
+Route Map Larvel Nova Field (Build on top of Here Maps Api)
 
 ### Installing
  
