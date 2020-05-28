@@ -118,7 +118,7 @@ export default {
                 // Create an outline for the route polyline:
                 var routeOutline = new H.map.Polyline(lineString, {
                 style: {
-                    lineWidth: 10,
+                    lineWidth: 5,
                     strokeColor: 'rgba(0, 128, 255, 0.7)',
                     lineTailCap: 'arrow-tail',
                     lineHeadCap: 'arrow-head'
@@ -127,12 +127,13 @@ export default {
                 // Create a patterned polyline:
                 var routeArrows = new H.map.Polyline(lineString, {
                 style: {
-                    lineWidth: 10,
-                    fillColor: 'white',
-                    strokeColor: 'rgba(255, 255, 255, 1)',
-                    lineDash: [0, 2],
-                    lineTailCap: 'arrow-tail',
-                    lineHeadCap: 'arrow-head' }
+                    // lineWidth: 10,
+                    // fillColor: 'white',
+                    // strokeColor: 'rgba(255, 255, 255, 1)',
+                    // lineDash: [0, 2],
+                    // lineTailCap: 'arrow-tail',
+                    // lineHeadCap: 'arrow-head'
+                     }
                 }
                 );
 
@@ -148,14 +149,9 @@ export default {
 
                 var officeMarkup = '<svg xmlns="http://www.w3.org/2000/svg" style="fill:green;" viewBox="0 0 20 20"><path d="M11 7l1.44 2.16c.31.47 1.01.84 1.57.84H17V8h-3l-1.44-2.16a5.94 5.94 0 0 0-1.4-1.4l-1.32-.88a1.72 1.72 0 0 0-1.7-.04L4 6v5h2V7l2-1-3 14h2l2.35-7.65L11 14v6h2v-8l-2.7-2.7L11 7zm1-3a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
                 officeIcon = new H.map.Icon(officeMarkup, {size: {w: 56, h: 56}});
-                if(this.field.svgMarker) {
-                  var svgMarkup = this.field.svgMarker;
-                }
-                else{ 
-                  var svgMarkup = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20S3 10.87 3 7a7 7 0 1 1 14 0c0 3.87-7 13-7 13zm0-11a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>';
-                }
-                 var dotIcon = new H.map.Icon(svgMarkup, {size: {w: 56, h: 56}}),
-                    group = new  H.map.Group(),
+
+                 
+                  var group = new  H.map.Group(),
                     i,
                     j;
                     var officedata = JSON.parse(this.gpspoints[0]);
@@ -182,10 +178,12 @@ export default {
                 //         group.addObject(marker);
                     
                 // }
-
+                  var i = 1;
                   this.gpspoints.slice(1).forEach(element => {
                   var jsonelement = JSON.parse(element);
                   if ((jsonelement.lat != 0) && (jsonelement.lon != 0)) {
+                        var svgMarkup = '<svg  xmlns:dc="http://purl.org/dc/elements/1.1/"  xmlns:cc="http://creativecommons.org/ns#"    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"    xmlns:svg="http://www.w3.org/2000/svg"    xmlns="http://www.w3.org/2000/svg"    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"    width="5.6444445mm"    height="9.847393mm"    viewBox="0 0 20 34.892337"    id="svg3455"    version="1.1"    inkscape:version="0.91 r13725"    sodipodi:docname="Map Pin.svg">   <defs      id="defs3457" />   <sodipodi:namedview      id="base"      pagecolor="#ffffff"      bordercolor="#666666"      borderopacity="1.0"      inkscape:pageopacity="0.0"      inkscape:pageshadow="2"      inkscape:zoom="12.181359"      inkscape:cx="8.4346812"      inkscape:cy="14.715224"      inkscape:document-units="px"      inkscape:current-layer="layer1"      showgrid="false"      inkscape:window-width="1024"      inkscape:window-height="705"      inkscape:window-x="-4"      inkscape:window-y="-4"      inkscape:window-maximized="1"      fit-margin-top="0"      fit-margin-left="0"      fit-margin-right="0"      fit-margin-bottom="0" />   <metadata      id="metadata3460">     <rdf:RDF>       <cc:Work          rdf:about="">         <dc:format>image/svg+xml</dc:format>         <dc:type            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />         <dc:title></dc:title>       </cc:Work>     </rdf:RDF>   </metadata>   <g      inkscape:label="Layer 1"      inkscape:groupmode="layer"      id="layer1"      transform="translate(-814.59595,-274.38623)">     <g        id="g3477"        transform="matrix(1.1855854,0,0,1.1855854,-151.17715,-57.3976)">       <path          sodipodi:nodetypes="sscccccsscs"          inkscape:connector-curvature="0"          id="path4337-3"          d="m 817.11249,282.97118 c -1.25816,1.34277 -2.04623,3.29881 -2.01563,5.13867 0.0639,3.84476 1.79693,5.3002 4.56836,10.59179 0.99832,2.32851 2.04027,4.79237 3.03125,8.87305 0.13772,0.60193 0.27203,1.16104 0.33416,1.20948 0.0621,0.0485 0.19644,-0.51262 0.33416,-1.11455 0.99098,-4.08068 2.03293,-6.54258 3.03125,-8.87109 2.77143,-5.29159 4.50444,-6.74704 4.56836,-10.5918 0.0306,-1.83986 -0.75942,-3.79785 -2.01758,-5.14062 -1.43724,-1.53389 -3.60504,-2.66908 -5.91619,-2.71655 -2.31115,-0.0475 -4.4809,1.08773 -5.91814,2.62162 z"          style="display:inline;opacity:1;fill:#ff4646;fill-opacity:1;stroke:#d73534;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />       <circle          r="6.0355"          cy="288.25278"          cx="823.03064"          id="path3049"          style="display:inline;opacity:1;fill:#590000;fill-opacity:1;stroke-width:0" />     </g>   </g>   		 <text x="49%" y="37%"           text-anchor="middle" 		  font-size = "9" 		  fill = "white"           >'+i+'</text> </svg> ';
+                        var dotIcon = new H.map.Icon(svgMarkup, {size: {w: 56, h: 56}});
                         var marker =  new H.map.Marker({
                         lat: jsonelement.lat,
                         lng: jsonelement.lon,
@@ -195,6 +193,7 @@ export default {
                         marker.instruction = jsonelement.description;
                         group.addObject(marker);  
                   }
+                  i = i + 1;
                   });
 
                 group.addEventListener('tap', function (evt) {
@@ -231,7 +230,8 @@ export default {
         addSummaryToPanel(summary){
                 var summaryDiv = document.createElement('div'),
                 content = '';
-                content += '<b>Total distance</b>: ' + summary.distance * 0.001 + 'km. <br/>';
+                var total = summary.distance * 0.001;
+                content += '<b>Total distance</b>: ' + total.toFixed(2) + 'km. <br/>';
                 content += '<b>Travel Time</b>: ' + this.toMMSS(summary.travelTime) + ' (in current traffic)';
 
 
