@@ -1,8 +1,8 @@
 <template>
     <div class="mt-4 mb-4">
-    <h4 class="font-normal text-80 mb-2">Route Map</h4>
-    <div ref="map" class="rounded-sm" style="height:600px;width:100%;"></div>
-    <div ref="panel" class="mt-4" style="margin-left: -5%;"></div>
+    <h4 class="font-normal text-80 mb-2">Route Map</h4><h4 v-show="error" class="text-danger">{{ this.field.customErrorMessage}}</h4>
+    <div v-show="!error" ref="map" class="rounded-sm" style="height:600px;width:100%;"></div>
+    <div v-show="!error" ref="panel" class="mt-4" style="margin-left: -5%;"></div>
     </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
     props: ['resource', 'resourceName', 'resourceId', 'field'],
     data() {
         return {
+            error:false,
             map : null,
             routeInstructionsContainer : null,
             bubble : '',
@@ -272,6 +273,12 @@ export default {
         }
     },
     mounted() {
+            if(this.field.gpsPoints.length < 2){
+            
+                //alert(this.field.customErrorMessage);
+                this.error = true;
+                return false;
+            }
             this.routeInstructionsContainer = this.$refs.panel;
  
             var platform = new H.service.Platform({

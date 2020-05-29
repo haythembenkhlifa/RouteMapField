@@ -42,4 +42,10 @@ class RouteMapField extends Field
     {
         return $this->withMeta(['showManuevers' => $showmanuevers]);
     }
+
+    public function customErrorMessage($errormessage = "")
+    {
+        return $this->withMeta(['customErrorMessage' => $errormessage]);
+    }
+
 }
