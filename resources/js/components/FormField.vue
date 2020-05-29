@@ -236,7 +236,7 @@ export default {
                 content += '<b>Travel Time</b>: ' + this.toMMSS(summary.travelTime) + ' (in current traffic)';
 
 
-                summaryDiv.style.fontSize = 'small';
+                summaryDiv.style.fontSize = '20px';
                 summaryDiv.style.marginLeft ='5%';
                 summaryDiv.style.marginRight ='5%';
                 summaryDiv.innerHTML = content;

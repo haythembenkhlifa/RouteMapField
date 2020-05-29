@@ -1393,7 +1393,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             content += '<b>Total distance</b>: ' + total.toFixed(2) + 'km. <br/>';
             content += '<b>Travel Time</b>: ' + this.toMMSS(summary.travelTime) + ' (in current traffic)';
 
-            summaryDiv.style.fontSize = 'small';
+            summaryDiv.style.fontSize = '20px';
             summaryDiv.style.marginLeft = '5%';
             summaryDiv.style.marginRight = '5%';
             summaryDiv.innerHTML = content;
@@ -1883,7 +1883,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             content += '<b>Total distance</b>: ' + total.toFixed(2) + 'km. <br/>';
             content += '<b>Travel Time</b>: ' + this.toMMSS(summary.travelTime) + ' (in current traffic)';
 
-            summaryDiv.style.fontSize = 'small';
+            summaryDiv.style.fontSize = '20px';
             summaryDiv.style.marginLeft = '5%';
             summaryDiv.style.marginRight = '5%';
             summaryDiv.innerHTML = content;
