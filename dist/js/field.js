@@ -1129,7 +1129,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n * Explanation why the layout looks so complicated:\n * The UI container needs a position (absolute or relative) to prevent z-index issues (DomMarker on top of UI)\n * Therefore it has these additional styles:\n *    position: absolute;\n *    width: 100%;\n *    height: 100%;\n * To prevent that the UI container captures all events the container is displaced by\n *   left: 100%;\n * To neutralize the displacement for the UI elements within the UI container the following adjustments are needed:\n *  - InfoBubble (.H_ib):            left: -100%;\n *  - left anchor (.H_l_left):       margin-left: -100%;\n *  - center anchor (.H_l_center):   left: -50%;            (was left: 50%)\n *  - right anchor (.H_l_right):     right: 100%;           (was right: 0)\n *                                        margin-left: -100%;\n */\n.H_ui {\n  font-size: 10px;\n  font-family: \"Lucida Grande\", Arial, Helvetica, sans-serif;\n  -moz-user-select: none;\n  -khtml-user-select: none;\n  -webkit-user-select: none;\n  -o-user-select: none;\n  -ms-user-select: none;\n  /* position ui on top of imprint to make both clickable */\n  z-index: 2;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 100%;\n}\n.H_ui * {\n  /* normalize in case some other normalization CSS likes things differently */\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box;\n  -moz-box-sizing: content-box;\n}\n.H_noevs {\n  pointer-events: none;\n}\n\n/*\n * Layout\n */\n.H_l_left {\n  position: absolute;\n  left: 16px;\n  margin-left: -100%;\n}\n.H_l_center {\n  position: absolute;\n  left: -50%;\n}\n.H_l_right {\n  position: absolute;\n  right: calc(100% + 16px);\n  margin-left: -100%;\n}\n.H_l_top {\n  top: 16px;\n}\n.H_l_middle {\n  top: 50%;\n}\n.H_l_bottom {\n  bottom: 16px;\n}\n\n/* Fix MAPSJS-579 for modern browsers */\n[class^=H_l_] {\n    pointer-events: none;\n}\n.H_ctl {\n    /* hack for IE9-10, auto doesn't work for them */\n    pointer-events: visiblePainted;\n    pointer-events: auto;\n}\n.H_l_horizontal .H_ctl {\n  float: left;\n}\n.H_l_anchor {\n  clear: both;\n  float: right;\n}\n.H_l_vertical .H_ctl {\n  clear: both;\n}\n.H_l_right .H_l_vertical .H_ctl {\n  float: right;\n}\n.H_l_right.H_l_middle.H_l_vertical .H_ctl{\n  float: right;\n}\n\n/**\n *  Element styles\n */\n.H_ctl {\n  margin: .8em;\n  position: relative;\n  -ms-touch-action: none;\n}\n.H_btn {\n  cursor: pointer;\n}\n.H_grp .H_btn,\n.H_rdo_buttons .H_btn {\n    -webkit-box-shadow: none;\n            box-shadow: none;\n}\n.H_grp .H_btn.H_active,\n.H_rdo_buttons .H_btn.H_active {\n  background: none;\n}\n.H_btn {\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n  border-radius: 0.5em;\n  width: 4em;\n  height: 4em;\n  background: #fff;\n}\n.H_disabled,\n.H_disabled:hover {\n  cursor: default;\n}\n.H_rdo_title {\n  font-size: 14px;\n  height: 40px;\n  line-height: 40px;\n  background-color: #575B63;\n  color: #fff;\n  padding-left: 16px;\n  padding-right: 16px;\n  border-radius: 5px 5px 0 0;\n  margin-bottom: 8px;\n  cursor: default;\n}\n.H_rdo ul {\n  list-style: none;\n  margin: 0 auto;\n  padding: 0;\n}\n\n/**\n *   Base Elements\n */\n.H_ctl.H_grp {\n  background: #fff;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n  border-radius: 0.5em;\n}\n/* Button divider */\n.H_zoom .H_el {\n  position: relative;\n}\n.H_l_vertical .H_zoom .H_el:last-child::after,\n.H_l_horizontal .H_zoom .H_el:last-child::after {\n  content: none;\n}\n.H_l_vertical .H_zoom .H_el {\n  margin-bottom: 0.1em;\n}\n.H_l_vertical .H_zoom .H_el:last-child {\n  margin-bottom: 0;\n}\n.H_l_vertical .H_zoom .H_el::after {\n  content: \"\";\n  position: absolute;\n  width: 2.6em;\n  height: 0.1em;\n  bottom: -0.1em;\n  left: 0.7em;\n  background: rgba(15, 22, 33, 0.1);\n}\n.H_l_horizontal .H_zoom .H_el {\n  margin-right: 0.1em;\n}\n.H_l_horizontal .H_zoom .H_el:last-child {\n  margin-right: 0;\n}\n.H_l_horizontal .H_zoom .H_el::after {\n  content: \"\";\n  position: absolute;\n  width: 0.1em;\n  height: 2.6em;\n  top: 0.7em;\n  right: -0.1em;\n  background: rgba(15, 22, 33, 0.1);\n}\n/* End: Button divider */\n.H_l_horizontal .H_grp .H_btn,\n.H_l_vertical .H_ctl {\n  float: left;\n}\n\n\n/** Menu panel */\n.H_overlay {\n  font-size: 14px;\n  color: rgba(15, 22, 33, 0.6);\n  -webkit-box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);\n  border-radius: 5px;\n  position: absolute;\n  min-width: 200px;\n  background: #fff;\n  display: none;\n  z-index: 100;\n  padding-bottom: 4px;\n}\n.H_overlay .H_separator {\n  content: \"\";\n  position: relative;\n  display: block;\n  margin: 8px 16px 8px 16px;\n  height: 1px;\n  background: rgba(15, 22, 33, 0.1);\n}\n.H_overlay .H_btn,\n.H_overlay .H_rdo li {\n  width: 184px;\n  height: 24px;\n  line-height: 24px;\n  padding: 8px 16px;\n}\n.H_overlay .H_btn{\n  border-radius: 0px;\n}\n.H_overlay .H_btn:hover,\n.H_overlay .H_rdo li:hover {\n  color: rgba(15, 22, 33, 0.8);\n}\n.H_overlay .H_btn.H_disabled,\n.H_overlay .H_rdo.H_disabled li,\n.H_overlay .H_btn.H_disabled:hover,\n.H_overlay .H_rdo.H_disabled li:hover {\n  color: rgba(15, 22, 33, 0.2);\n}\n.H_overlay .H_btn.H_active,\n.H_overlay .H_rdo.H_active li,\n.H_overlay .H_btn.H_active:hover,\n.H_overlay .H_rdo.H_active li:hover {\n  color: #0F1621;\n}\n.H_overlay>*:last-child {\n  clear: both;\n}\n.H_overlay>.H_btn {\n  white-space: nowrap;\n}\n.H_overlay.H_open {\n  display: block;\n}\n.H_overlay::before, .H_overlay::after {\n  content: \" \";\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n}\n.H_overlay.H_left::before {\n  border-width: 10px 10px 10px 0;\n  border-color: transparent rgba(15, 22, 33, 0.2) transparent transparent;\n  left: -12px;\n}\n.H_overlay.H_left::after {\n  border-width: 10px 10px 10px 0;\n  border-color: transparent #fff transparent transparent;\n  left: -10px;\n}\n.H_overlay.H_top.H_left::after {\n  border-color: transparent #575B63 transparent transparent;\n}\n.H_overlay.H_right::before {\n  border-width: 10px 0 10px 10px;\n  border-color: transparent transparent transparent rgba(15, 22, 33, 0.2);\n  left: calc(100% + 1px);\n}\n.H_overlay.H_right::after {\n  border-width: 10px 0 10px 10px;\n  border-color: transparent transparent transparent #fff;\n  left: 100%;\n}\n.H_overlay.H_top.H_right::after {\n  border-color: transparent transparent transparent #575B63;\n}\n.H_overlay.H_top::before,\n.H_overlay.H_top::after {\n  top: 10px;\n}\n.H_overlay.H_bottom::before,\n.H_overlay.H_bottom::after {\n  bottom: 10px;\n}\n.H_overlay.H_middle::before,\n.H_overlay.H_middle::after {\n  top: 50%;\n  margin-top: -10px;\n}\n.H_overlay.H_top.H_center::before {\n  border-width: 0 10px 10px 10px;\n  border-color: transparent transparent rgba(15, 22, 33, 0.2) transparent;\n  top: -11px;\n  left: 50%;\n  margin-left: -10px;\n}\n.H_overlay.H_top.H_center::after {\n  border-width: 0 10px 10px 10px;\n  border-color: transparent transparent #575B63 transparent;\n  top: -10px;\n  left: 50%;\n  margin-left: -10px;\n}\n.H_overlay.H_bottom.H_center::before {\n  border-width: 10px 10px 0 10px;\n  border-color: rgba(15, 22, 33, 0.2) transparent transparent transparent;\n  bottom: -11px;\n  left: 50%;\n  margin-left: -10px;\n}\n.H_overlay.H_bottom.H_center::after {\n  border-width: 10px 10px 0 10px;\n  border-color: #fff transparent transparent transparent;\n  bottom: -10px;\n  left: 50%;\n  margin-left: -10px;\n}\n\n\n/** InfoBubble */\n.H_ib {\n  position: absolute;\n  left: .91em;\n  left: -100%;\n}\n.H_ib_tail {\n  position: absolute;\n  width: 20px;\n  height: 10px;\n  margin: -10px -10px;\n}\n.H_ib_tail::before{\n  bottom: -1px;\n  border-width: 10px;\n  position: absolute;\n  display: block;\n  content: \"\";\n  border-color: transparent;\n  border-style: solid;\n  right: 0px;\n}\n.H_ib_tail::after{\n  bottom: 0;\n  position: absolute;\n  display: block;\n  content: \"\";\n  border-color: white;\n  border-style: solid;\n  border-width: 10px;\n}\n.H_ib.H_ib_top .H_ib_tail::after {\n  border-width: 10px 10px 0px 10px;\n  border-color: white transparent;\n}\n.H_ib.H_ib_top .H_ib_tail::before {\n  border-top-color: rgba(15, 22, 33, 0.2);\n  border-bottom-width: 0px;\n}\n.H_ib_notail .H_ib_tail {\n  display: none;\n}\n.H_ib_body {\n  background: white;\n  position: absolute;\n  bottom: .5em;\n  padding: 0;\n  right: 0px;\n  border-radius: 5px;\n  margin-right: -3em;\n  -webkit-box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);\n  margin-bottom: 0.5em;\n}\n.H_ib_close {\n  font-size: .6em;\n  position: absolute;\n  right: 12px;\n  width: 12px;\n  height: 12px;\n  cursor: pointer;\n  top: 12px;\n  z-index: 1;\n  background: none;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n.H_ib_close svg.H_icon {\n    top: 0;\n    -webkit-transform: none;\n            transform: none;\n    width: auto;\n    height: auto;\n}\n.H_ib_noclose .H_ib_close {\n  display: none;\n}\n.H_ib_noclose .H_ib_body {\n  padding: 0 0 0 0;\n}\n.H_ib_content {\n  min-width: 6em;\n  font: 14px \"Lucida Grande\", Arial, Helvetica, sans-serif;\n  line-height: 24px;\n  margin: 16px 28px 20px 16px;\n  color: rgba(15,22,33,.8);\n  user-select: text;\n  -moz-user-select: text;\n  -khtml-user-select: text;\n  -webkit-user-select: text;\n  -o-user-select: text;\n  -ms-user-select: text;\n}\n\n\n/*##################################################  SLIDER  ########################################################*/\n.H_l_horizontal .H_zoom_slider {\n  min-width: 262px;\n}\n.H_slider {\n  cursor: pointer;\n}\n.H_l_horizontal.H_slider {\n  float: left;\n  height: 4em;\n  width: auto;\n  padding: 0 1em;\n}\n.H_slider .H_slider_track {\n  width: 0.4em;\n  height: 100%;\n}\n.H_l_horizontal.H_slider .H_slider_track {\n  height: 0.4em;\n  width: 100%;\n}\n.H_l_horizontal.H_slider .H_slider_cont {\n  height: 100%;\n}\n.H_l_horizontal.H_slider .H_slider_knob_cont {\n  margin-top: -0.4em;\n}\n.H_slider {\n  background-color: #fff;\n  padding: 1em 0em;\n  width: 4em;\n}\n.H_slider .H_slider_cont {\n  position: relative;\n}\n.H_slider .H_slider_knob_cont,\n.H_slider .H_slider_knob_halo {\n  width: 1.8em;\n  height: 1.8em;\n  margin-left: 0em;\n  border-radius:9em;\n}\n.H_slider .H_slider_knob {\n  width: 1.2em;\n  height: 1.2em;\n  background-color: white;\n  border-radius:9em;\n  -webkit-transform: translate(-50%,-50%);\n  transform: translate(-50%,-50%);\n  top: 50%;\n  left: 50%;\n  -webkit-box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.6);\n  position: absolute;\n}\n.H_slider:hover .H_slider_knob {\n  -webkit-box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.8);\n          box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.8);\n}\n.H_slider.H_disabled .H_slider_knob {\n  -webkit-box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.2);\n          box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.2);\n}\n.H_slider.H_slider_active .H_slider_knob {\n  -webkit-box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 1);\n          box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 1);\n}\n.H_slider:hover .H_slider_track {\n  background-color: rgba(15, 22, 33, 0.8);\n}\n.H_disabled .H_slider_track {\n  background-color: rgba(15, 22, 33, 0.2);\n}\n.H_slider:hover .H_slider_track_active {\n  background-color: rgba(0, 182, 178, 0.8);\n}\n.H_disabled .H_slider_track_active {\n  background-color: rgba(0, 182, 178, 0.2);\n}\n.H_slider.H_slider_active .H_slider_track {\n  background-color: rgba(15, 22, 33, 1.0);\n}\n.H_slider.H_slider_active .H_slider_track_active {\n  background-color: rgba(0, 182, 178, 1.0);\n}\n.H_slider .H_slider_track,\n.H_slider .H_slider_knob_cont{\n  position:relative;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%,-50%);\n  transform: translate(-50%,-50%);\n}\n.H_slider .H_slider_track {\n  background-color: rgba(15, 22, 33, 0.6);\n  overflow: hidden;\n}\n.H_slider .H_slider_track_active {\n  background-color: #00B6B2;\n  position: absolute;\n  -webkit-transform: translate(-50%,0%);\n          transform: translate(-50%,0%);\n}\n.H_slider.H_disabled .H_slider_track {\n  background-color: rgba(15, 22, 33, 0.2);\n}\n.H_slider.H_disabled .H_slider_track_active {\n  background-color: #bae2e3;\n}\n.H_slider.H_l_horizontal .H_slider_track_active {\n  -webkit-transform: translate(-200%, -50%);\n          transform: translate(-200%, -50%);\n}\n.H_slider.H_disabled {\n  cursor: default;\n}\n\n/*###############################################  CONTEXT MENU  #####################################################*/\n.H_context_menu {\n  font-size: 14px;\n  min-width: 158px;\n  max-width: 40%;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n  position: absolute;\n  left: -100%;\n  top: 0;\n  color: rgba(15, 22, 33, 0.6);\n  background-color: #fff;\n  border-radius: 5px;\n  padding: 16px 16px 4px 16px;\n  -moz-user-select: initial;\n  -khtml-user-select: initial;\n  -webkit-user-select: initial;\n  -o-user-select: initial;\n  -ms-user-select: initial;\n  z-index: 200;\n}\n.H_context_menu_closed {\n    display: none;\n}\n.H_context_menu_item {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  line-height: 24px;\n  margin-bottom: 16px;\n  outline: none;\n}\n.H_context_menu_item.clickable:hover {\n  color: rgba(15, 22, 33, 0.8);\n  cursor: pointer;\n}\n.H_context_menu_item.disabled:hover,\n.H_context_menu_item.disabled {\n    background: transparent !important;\n    color: rgba(15, 22, 33, 0.2);\n    cursor: default !important;\n\n    -moz-user-select: none;\n    -khtml-user-select: none;\n    -webkit-user-select: none;\n    -o-user-select: none;\n    -ms-user-select: none;\n}\n.H_context_menu_item_separator {\n    height: 0;\n    border-top: 1px solid rgba(15, 22, 33, 0.1);\n    padding-bottom: 16px;\n    line-height: 0;\n    font-size: 0;\n}\n\n\n/*#################################################  SCALE BAR  ######################################################*/\n.H_scalebar {\n  margin-top: 36px;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-shadow:\n    -1px -1px 0 rgba(255, 255, 255, 0.7),\n    1px -1px 0 rgba(255, 255, 255, 0.7),\n    -1px 1px 0 rgba(255, 255, 255, 0.7),\n    1px 1px 0 rgba(255, 255, 255, 0.7);\n}\n\n\n/*###################################  DISTANCE MEASUREMENT AND TRAFFIC INCIDENTS ####################################*/\n.H_tib_content {\n  width: 25em;\n  position: relative;\n  margin: -16px -28px -20px -16px;\n}\n.H_tib .H_tib_desc { padding: 0px 16px 20px 16px\n}\n.H_tib .H_tib_time {color: rgba(15,22,33,.4);margin-top: 0.8em;\n}\n.H_tib_right { float:right;\n}\n.H_tib .H_btn > svg.H_icon {\n  fill: rgba(255,255,255, .6);\n}\n.H_tib .H_btn:hover > svg.H_icon {\n  fill: white;\n}\n.H_dm_label {\n  font: 12px \"Lucida Grande\", Arial, Helvetica, sans-serif;\n  color: black;\n  text-shadow: 1px 1px .5px #FFF, 1px -1px .5px #FFF, -1px 1px .5px #FFF, -1px -1px .5px #FFF;\n  white-space: nowrap;\n  margin-left: 12px;\n  margin-top: -7px;\n  /* This will not work on IE9, but it is accepted! */\n  pointer-events: none;\n}\n\n\n/*###################################################  ICON  #########################################################*/\nsvg.H_icon {\n  display: block;\n  position: relative;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  margin:auto;\n  width: 24px;\n  height: 24px;\n  fill: rgba(15, 22, 33, 0.6);\n}\nsvg.H_icon .H_icon_stroke {\n  stroke: rgba(15, 22, 33, 0.6);\n  fill: none;\n}\n.H_btn:hover > svg.H_icon {\n  fill: rgba(15, 22, 33, 0.8);\n}\n.H_btn:hover > svg.H_icon .H_icon_stroke {\n  stroke: rgba(15, 22, 33, 0.8);\n}\n.H_btn.H_active {\n  background-color: #CFD0D3;\n}\n.H_rdo .H_btn.H_active {\n  background: none;\n}\n.H_active > svg.H_icon,\n.H_active:hover > svg.H_icon {\n  fill: #0F1621 !important;\n}\n.H_active > svg.H_icon .H_icon_stroke,\n.H_active:hover > svg.H_icon .H_icon_stroke {\n  stroke: #0F1621;\n}\n.H_disabled svg.H_icon,\n.H_disabled:hover svg.H_icon {\n  fill: rgba(15, 22, 33, 0.2);\n  cursor: default;\n}\n.H_disabled svg.H_icon .H_icon_stroke,\n.H_disabled:hover svg.H_icon .H_icon_stroke {\n  stroke: rgba(15, 22, 33, 0.2);\n}\n\n/*###############################################  OVERVIEW MAP  #####################################################*/\n.H_overview {\n  -webkit-transition: width 0.2s,height 0.2s,margin-top 0.2s, padding 0.2s;\n  transition: width 0.2s,height 0.2s,margin-top 0.2s, padding 0.2s;\n  width: 0em;\n  height: 0em;\n  overflow: hidden;\n  cursor: default;\n  position: absolute;\n  margin: auto;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n}\n.H_l_vertical .H_overview_active {\n    margin: auto 5px;\n}\n.H_l_horizontal .H_overview_active {\n  margin: 5px auto;\n}\n.H_l_center .H_overview {\n  left: -9999px;\n  right: -9999px;\n}\n.H_l_middle .H_overview {\n  top: -9999px;\n  bottom: -9999px;\n}\n.H_l_right .H_overview {\n  right: 100%;\n}\n.H_l_left .H_overview {\n  left: 100%;\n}\n.H_l_bottom .H_overview {\n  bottom: 0;\n}\n.H_l_center.H_l_bottom .H_overview {\n  bottom: 100%;\n}\n.H_l_top .H_overview {\n  top: 0;\n}\n.H_l_center.H_l_top .H_overview {\n  top: 100%;\n}\n.H_overview .H_overview_map {\n  background-color: rgba(256,256,256,0.6);\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n}\n.H_overview_map .H_ui {\n  display: none;\n}\n.H_zoom_lasso {\n  position: absolute;\n  display: none;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n  z-index: 100000;\n  background-color: rgba(15, 22, 33, 0.2);\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*\n * Explanation why the layout looks so complicated:\n * The UI container needs a position (absolute or relative) to prevent z-index issues (DomMarker on top of UI)\n * Therefore it has these additional styles:\n *    position: absolute;\n *    width: 100%;\n *    height: 100%;\n * To prevent that the UI container captures all events the container is displaced by\n *   left: 100%;\n * To neutralize the displacement for the UI elements within the UI container the following adjustments are needed:\n *  - InfoBubble (.H_ib):            left: -100%;\n *  - left anchor (.H_l_left):       margin-left: -100%;\n *  - center anchor (.H_l_center):   left: -50%;            (was left: 50%)\n *  - right anchor (.H_l_right):     right: 100%;           (was right: 0)\n *                                        margin-left: -100%;\n */\n.H_ui {\n  font-size: 10px;\n  font-family: \"Lucida Grande\", Arial, Helvetica, sans-serif;\n  -moz-user-select: none;\n  -khtml-user-select: none;\n  -webkit-user-select: none;\n  -o-user-select: none;\n  -ms-user-select: none;\n  /* position ui on top of imprint to make both clickable */\n  z-index: 2;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  left: 100%;\n}\n.H_ui * {\n  /* normalize in case some other normalization CSS likes things differently */\n  -webkit-box-sizing: content-box;\n          box-sizing: content-box;\n  -moz-box-sizing: content-box;\n}\n.H_noevs {\n  pointer-events: none;\n}\n\n/*\n * Layout\n */\n.H_l_left {\n  position: absolute;\n  left: 16px;\n  margin-left: -100%;\n}\n.H_l_center {\n  position: absolute;\n  left: -50%;\n}\n.H_l_right {\n  position: absolute;\n  right: calc(100% + 16px);\n  margin-left: -100%;\n}\n.H_l_top {\n  top: 16px;\n}\n.H_l_middle {\n  top: 50%;\n}\n.H_l_bottom {\n  bottom: 16px;\n}\n\n/* Fix MAPSJS-579 for modern browsers */\n[class^=\"H_l_\"] {\n  pointer-events: none;\n}\n.H_ctl {\n  /* hack for IE9-10, auto doesn't work for them */\n  pointer-events: visiblePainted;\n  pointer-events: auto;\n}\n.H_l_horizontal .H_ctl {\n  float: left;\n}\n.H_l_anchor {\n  clear: both;\n  float: right;\n}\n.H_l_vertical .H_ctl {\n  clear: both;\n}\n.H_l_right .H_l_vertical .H_ctl {\n  float: right;\n}\n.H_l_right.H_l_middle.H_l_vertical .H_ctl {\n  float: right;\n}\n\n/**\n *  Element styles\n */\n.H_ctl {\n  margin: 0.8em;\n  position: relative;\n  -ms-touch-action: none;\n}\n.H_btn {\n  cursor: pointer;\n}\n.H_grp .H_btn,\n.H_rdo_buttons .H_btn {\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n.H_grp .H_btn.H_active,\n.H_rdo_buttons .H_btn.H_active {\n  background: none;\n}\n.H_btn {\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n  border-radius: 0.5em;\n  width: 4em;\n  height: 4em;\n  background: #fff;\n}\n.H_disabled,\n.H_disabled:hover {\n  cursor: default;\n}\n.H_rdo_title {\n  font-size: 14px;\n  height: 40px;\n  line-height: 40px;\n  background-color: #575b63;\n  color: #fff;\n  padding-left: 16px;\n  padding-right: 16px;\n  border-radius: 5px 5px 0 0;\n  margin-bottom: 8px;\n  cursor: default;\n}\n.H_rdo ul {\n  list-style: none;\n  margin: 0 auto;\n  padding: 0;\n}\n\n/**\n *   Base Elements\n */\n.H_ctl.H_grp {\n  background: #fff;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n  border-radius: 0.5em;\n}\n/* Button divider */\n.H_zoom .H_el {\n  position: relative;\n}\n.H_l_vertical .H_zoom .H_el:last-child::after,\n.H_l_horizontal .H_zoom .H_el:last-child::after {\n  content: none;\n}\n.H_l_vertical .H_zoom .H_el {\n  margin-bottom: 0.1em;\n}\n.H_l_vertical .H_zoom .H_el:last-child {\n  margin-bottom: 0;\n}\n.H_l_vertical .H_zoom .H_el::after {\n  content: \"\";\n  position: absolute;\n  width: 2.6em;\n  height: 0.1em;\n  bottom: -0.1em;\n  left: 0.7em;\n  background: rgba(15, 22, 33, 0.1);\n}\n.H_l_horizontal .H_zoom .H_el {\n  margin-right: 0.1em;\n}\n.H_l_horizontal .H_zoom .H_el:last-child {\n  margin-right: 0;\n}\n.H_l_horizontal .H_zoom .H_el::after {\n  content: \"\";\n  position: absolute;\n  width: 0.1em;\n  height: 2.6em;\n  top: 0.7em;\n  right: -0.1em;\n  background: rgba(15, 22, 33, 0.1);\n}\n/* End: Button divider */\n.H_l_horizontal .H_grp .H_btn,\n.H_l_vertical .H_ctl {\n  float: left;\n}\n\n/** Menu panel */\n.H_overlay {\n  font-size: 14px;\n  color: rgba(15, 22, 33, 0.6);\n  -webkit-box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);\n  border-radius: 5px;\n  position: absolute;\n  min-width: 200px;\n  background: #fff;\n  display: none;\n  z-index: 100;\n  padding-bottom: 4px;\n}\n.H_overlay .H_separator {\n  content: \"\";\n  position: relative;\n  display: block;\n  margin: 8px 16px 8px 16px;\n  height: 1px;\n  background: rgba(15, 22, 33, 0.1);\n}\n.H_overlay .H_btn,\n.H_overlay .H_rdo li {\n  width: 184px;\n  height: 24px;\n  line-height: 24px;\n  padding: 8px 16px;\n}\n.H_overlay .H_btn {\n  border-radius: 0px;\n}\n.H_overlay .H_btn:hover,\n.H_overlay .H_rdo li:hover {\n  color: rgba(15, 22, 33, 0.8);\n}\n.H_overlay .H_btn.H_disabled,\n.H_overlay .H_rdo.H_disabled li,\n.H_overlay .H_btn.H_disabled:hover,\n.H_overlay .H_rdo.H_disabled li:hover {\n  color: rgba(15, 22, 33, 0.2);\n}\n.H_overlay .H_btn.H_active,\n.H_overlay .H_rdo.H_active li,\n.H_overlay .H_btn.H_active:hover,\n.H_overlay .H_rdo.H_active li:hover {\n  color: #0f1621;\n}\n.H_overlay > *:last-child {\n  clear: both;\n}\n.H_overlay > .H_btn {\n  white-space: nowrap;\n}\n.H_overlay.H_open {\n  display: block;\n}\n.H_overlay::before,\n.H_overlay::after {\n  content: \" \";\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n}\n.H_overlay.H_left::before {\n  border-width: 10px 10px 10px 0;\n  border-color: transparent rgba(15, 22, 33, 0.2) transparent transparent;\n  left: -12px;\n}\n.H_overlay.H_left::after {\n  border-width: 10px 10px 10px 0;\n  border-color: transparent #fff transparent transparent;\n  left: -10px;\n}\n.H_overlay.H_top.H_left::after {\n  border-color: transparent #575b63 transparent transparent;\n}\n.H_overlay.H_right::before {\n  border-width: 10px 0 10px 10px;\n  border-color: transparent transparent transparent rgba(15, 22, 33, 0.2);\n  left: calc(100% + 1px);\n}\n.H_overlay.H_right::after {\n  border-width: 10px 0 10px 10px;\n  border-color: transparent transparent transparent #fff;\n  left: 100%;\n}\n.H_overlay.H_top.H_right::after {\n  border-color: transparent transparent transparent #575b63;\n}\n.H_overlay.H_top::before,\n.H_overlay.H_top::after {\n  top: 10px;\n}\n.H_overlay.H_bottom::before,\n.H_overlay.H_bottom::after {\n  bottom: 10px;\n}\n.H_overlay.H_middle::before,\n.H_overlay.H_middle::after {\n  top: 50%;\n  margin-top: -10px;\n}\n.H_overlay.H_top.H_center::before {\n  border-width: 0 10px 10px 10px;\n  border-color: transparent transparent rgba(15, 22, 33, 0.2) transparent;\n  top: -11px;\n  left: 50%;\n  margin-left: -10px;\n}\n.H_overlay.H_top.H_center::after {\n  border-width: 0 10px 10px 10px;\n  border-color: transparent transparent #575b63 transparent;\n  top: -10px;\n  left: 50%;\n  margin-left: -10px;\n}\n.H_overlay.H_bottom.H_center::before {\n  border-width: 10px 10px 0 10px;\n  border-color: rgba(15, 22, 33, 0.2) transparent transparent transparent;\n  bottom: -11px;\n  left: 50%;\n  margin-left: -10px;\n}\n.H_overlay.H_bottom.H_center::after {\n  border-width: 10px 10px 0 10px;\n  border-color: #fff transparent transparent transparent;\n  bottom: -10px;\n  left: 50%;\n  margin-left: -10px;\n}\n\n/** InfoBubble */\n.H_ib {\n  position: absolute;\n  left: 0.91em;\n  left: -100%;\n}\n.H_ib_tail {\n  position: absolute;\n  width: 20px;\n  height: 10px;\n  margin: -10px -10px;\n}\n.H_ib_tail::before {\n  bottom: -1px;\n  border-width: 10px;\n  position: absolute;\n  display: block;\n  content: \"\";\n  border-color: transparent;\n  border-style: solid;\n  right: 0px;\n}\n.H_ib_tail::after {\n  bottom: 0;\n  position: absolute;\n  display: block;\n  content: \"\";\n  border-color: white;\n  border-style: solid;\n  border-width: 10px;\n}\n.H_ib.H_ib_top .H_ib_tail::after {\n  border-width: 10px 10px 0px 10px;\n  border-color: white transparent;\n}\n.H_ib.H_ib_top .H_ib_tail::before {\n  border-top-color: rgba(15, 22, 33, 0.2);\n  border-bottom-width: 0px;\n}\n.H_ib_notail .H_ib_tail {\n  display: none;\n}\n.H_ib_body {\n  background: white;\n  position: absolute;\n  bottom: 0.5em;\n  padding: 0;\n  right: 0px;\n  border-radius: 5px;\n  margin-right: -3em;\n  -webkit-box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0px 0 4px 0 rgba(15, 22, 33, 0.6);\n  margin-bottom: 0.5em;\n}\n.H_ib_close {\n  font-size: 0.6em;\n  position: absolute;\n  right: 12px;\n  width: 12px;\n  height: 12px;\n  cursor: pointer;\n  top: 12px;\n  z-index: 1;\n  background: none;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n.H_ib_close svg.H_icon {\n  top: 0;\n  -webkit-transform: none;\n          transform: none;\n  width: auto;\n  height: auto;\n}\n.H_ib_noclose .H_ib_close {\n  display: none;\n}\n.H_ib_noclose .H_ib_body {\n  padding: 0 0 0 0;\n}\n.H_ib_content {\n  min-width: 6em;\n  font: 14px \"Lucida Grande\", Arial, Helvetica, sans-serif;\n  line-height: 24px;\n  margin: 16px 28px 20px 16px;\n  color: rgba(15, 22, 33, 0.8);\n  user-select: text;\n  -moz-user-select: text;\n  -khtml-user-select: text;\n  -webkit-user-select: text;\n  -o-user-select: text;\n  -ms-user-select: text;\n}\n\n/*##################################################  SLIDER  ########################################################*/\n.H_l_horizontal .H_zoom_slider {\n  min-width: 262px;\n}\n.H_slider {\n  cursor: pointer;\n}\n.H_l_horizontal.H_slider {\n  float: left;\n  height: 4em;\n  width: auto;\n  padding: 0 1em;\n}\n.H_slider .H_slider_track {\n  width: 0.4em;\n  height: 100%;\n}\n.H_l_horizontal.H_slider .H_slider_track {\n  height: 0.4em;\n  width: 100%;\n}\n.H_l_horizontal.H_slider .H_slider_cont {\n  height: 100%;\n}\n.H_l_horizontal.H_slider .H_slider_knob_cont {\n  margin-top: -0.4em;\n}\n.H_slider {\n  background-color: #fff;\n  padding: 1em 0em;\n  width: 4em;\n}\n.H_slider .H_slider_cont {\n  position: relative;\n}\n.H_slider .H_slider_knob_cont,\n.H_slider .H_slider_knob_halo {\n  width: 1.8em;\n  height: 1.8em;\n  margin-left: 0em;\n  border-radius: 9em;\n}\n.H_slider .H_slider_knob {\n  width: 1.2em;\n  height: 1.2em;\n  background-color: white;\n  border-radius: 9em;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  top: 50%;\n  left: 50%;\n  -webkit-box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.6);\n  position: absolute;\n}\n.H_slider:hover .H_slider_knob {\n  -webkit-box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.8);\n          box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.8);\n}\n.H_slider.H_disabled .H_slider_knob {\n  -webkit-box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.2);\n          box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 0.2);\n}\n.H_slider.H_slider_active .H_slider_knob {\n  -webkit-box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 1);\n          box-shadow: 0em 0 0.5em 0 rgba(15, 22, 33, 1);\n}\n.H_slider:hover .H_slider_track {\n  background-color: rgba(15, 22, 33, 0.8);\n}\n.H_disabled .H_slider_track {\n  background-color: rgba(15, 22, 33, 0.2);\n}\n.H_slider:hover .H_slider_track_active {\n  background-color: rgba(0, 182, 178, 0.8);\n}\n.H_disabled .H_slider_track_active {\n  background-color: rgba(0, 182, 178, 0.2);\n}\n.H_slider.H_slider_active .H_slider_track {\n  background-color: rgba(15, 22, 33, 1);\n}\n.H_slider.H_slider_active .H_slider_track_active {\n  background-color: rgba(0, 182, 178, 1);\n}\n.H_slider .H_slider_track,\n.H_slider .H_slider_knob_cont {\n  position: relative;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n}\n.H_slider .H_slider_track {\n  background-color: rgba(15, 22, 33, 0.6);\n  overflow: hidden;\n}\n.H_slider .H_slider_track_active {\n  background-color: #00b6b2;\n  position: absolute;\n  -webkit-transform: translate(-50%, 0%);\n          transform: translate(-50%, 0%);\n}\n.H_slider.H_disabled .H_slider_track {\n  background-color: rgba(15, 22, 33, 0.2);\n}\n.H_slider.H_disabled .H_slider_track_active {\n  background-color: #bae2e3;\n}\n.H_slider.H_l_horizontal .H_slider_track_active {\n  -webkit-transform: translate(-200%, -50%);\n          transform: translate(-200%, -50%);\n}\n.H_slider.H_disabled {\n  cursor: default;\n}\n\n/*###############################################  CONTEXT MENU  #####################################################*/\n.H_context_menu {\n  font-size: 14px;\n  min-width: 158px;\n  max-width: 40%;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n  position: absolute;\n  left: -100%;\n  top: 0;\n  color: rgba(15, 22, 33, 0.6);\n  background-color: #fff;\n  border-radius: 5px;\n  padding: 16px 16px 4px 16px;\n  -moz-user-select: initial;\n  -khtml-user-select: initial;\n  -webkit-user-select: initial;\n  -o-user-select: initial;\n  -ms-user-select: initial;\n  z-index: 200;\n}\n.H_context_menu_closed {\n  display: none;\n}\n.H_context_menu_item {\n  text-overflow: ellipsis;\n  overflow: hidden;\n  line-height: 24px;\n  margin-bottom: 16px;\n  outline: none;\n}\n.H_context_menu_item.clickable:hover {\n  color: rgba(15, 22, 33, 0.8);\n  cursor: pointer;\n}\n.H_context_menu_item.disabled:hover,\n.H_context_menu_item.disabled {\n  background: transparent !important;\n  color: rgba(15, 22, 33, 0.2);\n  cursor: default !important;\n\n  -moz-user-select: none;\n  -khtml-user-select: none;\n  -webkit-user-select: none;\n  -o-user-select: none;\n  -ms-user-select: none;\n}\n.H_context_menu_item_separator {\n  height: 0;\n  border-top: 1px solid rgba(15, 22, 33, 0.1);\n  padding-bottom: 16px;\n  line-height: 0;\n  font-size: 0;\n}\n\n/*#################################################  SCALE BAR  ######################################################*/\n.H_scalebar {\n  margin-top: 36px;\n  -webkit-box-shadow: none;\n          box-shadow: none;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.7),\n    1px -1px 0 rgba(255, 255, 255, 0.7), -1px 1px 0 rgba(255, 255, 255, 0.7),\n    1px 1px 0 rgba(255, 255, 255, 0.7);\n}\n\n/*###################################  DISTANCE MEASUREMENT AND TRAFFIC INCIDENTS ####################################*/\n.H_tib_content {\n  width: 25em;\n  position: relative;\n  margin: -16px -28px -20px -16px;\n}\n.H_tib .H_tib_desc {\n  padding: 0px 16px 20px 16px;\n}\n.H_tib .H_tib_time {\n  color: rgba(15, 22, 33, 0.4);\n  margin-top: 0.8em;\n}\n.H_tib_right {\n  float: right;\n}\n.H_tib .H_btn > svg.H_icon {\n  fill: rgba(255, 255, 255, 0.6);\n}\n.H_tib .H_btn:hover > svg.H_icon {\n  fill: white;\n}\n.H_dm_label {\n  font: 12px \"Lucida Grande\", Arial, Helvetica, sans-serif;\n  color: black;\n  text-shadow: 1px 1px 0.5px #fff, 1px -1px 0.5px #fff, -1px 1px 0.5px #fff,\n    -1px -1px 0.5px #fff;\n  white-space: nowrap;\n  margin-left: 12px;\n  margin-top: -7px;\n  /* This will not work on IE9, but it is accepted! */\n  pointer-events: none;\n}\n\n/*###################################################  ICON  #########################################################*/\nsvg.H_icon {\n  display: block;\n  position: relative;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  margin: auto;\n  width: 24px;\n  height: 24px;\n  fill: rgba(15, 22, 33, 0.6);\n}\nsvg.H_icon .H_icon_stroke {\n  stroke: rgba(15, 22, 33, 0.6);\n  fill: none;\n}\n.H_btn:hover > svg.H_icon {\n  fill: rgba(15, 22, 33, 0.8);\n}\n.H_btn:hover > svg.H_icon .H_icon_stroke {\n  stroke: rgba(15, 22, 33, 0.8);\n}\n.H_btn.H_active {\n  background-color: #cfd0d3;\n}\n.H_rdo .H_btn.H_active {\n  background: none;\n}\n.H_active > svg.H_icon,\n.H_active:hover > svg.H_icon {\n  fill: #0f1621 !important;\n}\n.H_active > svg.H_icon .H_icon_stroke,\n.H_active:hover > svg.H_icon .H_icon_stroke {\n  stroke: #0f1621;\n}\n.H_disabled svg.H_icon,\n.H_disabled:hover svg.H_icon {\n  fill: rgba(15, 22, 33, 0.2);\n  cursor: default;\n}\n.H_disabled svg.H_icon .H_icon_stroke,\n.H_disabled:hover svg.H_icon .H_icon_stroke {\n  stroke: rgba(15, 22, 33, 0.2);\n}\n\n/*###############################################  OVERVIEW MAP  #####################################################*/\n.H_overview {\n  -webkit-transition: width 0.2s, height 0.2s, margin-top 0.2s, padding 0.2s;\n  transition: width 0.2s, height 0.2s, margin-top 0.2s, padding 0.2s;\n  width: 0em;\n  height: 0em;\n  overflow: hidden;\n  cursor: default;\n  position: absolute;\n  margin: auto;\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n}\n.H_l_vertical .H_overview_active {\n  margin: auto 5px;\n}\n.H_l_horizontal .H_overview_active {\n  margin: 5px auto;\n}\n.H_l_center .H_overview {\n  left: -9999px;\n  right: -9999px;\n}\n.H_l_middle .H_overview {\n  top: -9999px;\n  bottom: -9999px;\n}\n.H_l_right .H_overview {\n  right: 100%;\n}\n.H_l_left .H_overview {\n  left: 100%;\n}\n.H_l_bottom .H_overview {\n  bottom: 0;\n}\n.H_l_center.H_l_bottom .H_overview {\n  bottom: 100%;\n}\n.H_l_top .H_overview {\n  top: 0;\n}\n.H_l_center.H_l_top .H_overview {\n  top: 100%;\n}\n.H_overview .H_overview_map {\n  background-color: rgba(256, 256, 256, 0.6);\n  -webkit-box-sizing: border-box;\n  box-sizing: border-box;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n}\n.H_overview_map .H_ui {\n  display: none;\n}\n.H_zoom_lasso {\n  position: absolute;\n  display: none;\n  -webkit-box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n          box-shadow: 0em 0 0.4em 0 rgba(15, 22, 33, 0.6);\n  z-index: 100000;\n  background-color: rgba(15, 22, 33, 0.2);\n}\n", ""]);
 
 // exports
 
@@ -1191,6 +1191,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -1199,269 +1200,266 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['resource', 'resourceName', 'resourceId', 'field'],
-    data: function data() {
-        return {
-            error: false,
-            map: null,
-            routeInstructionsContainer: null,
-            bubble: '',
-            behavior: null,
-            ui: null,
-            gpspoints: []
-        };
-    },
+  props: ["resource", "resourceName", "resourceId", "field"],
+  data: function data() {
+    return {
+      error: false,
+      map: null,
+      routeInstructionsContainer: null,
+      bubble: "",
+      behavior: null,
+      ui: null,
+      gpspoints: []
+    };
+  },
 
-    methods: {
-        calculateRouteFromAtoB: function calculateRouteFromAtoB(platform) {
+  methods: {
+    calculateRouteFromAtoB: function calculateRouteFromAtoB(platform) {
+      this.gpspoints = this.field.gpsPoints;
+      console.log(this.gpspoints);
 
-            this.gpspoints = this.field.gpsPoints;
-            console.log(this.gpspoints);
-
-            var router = platform.getRoutingService(),
-                routeRequestParams = {
-                mode: 'fastest;car',
-                representation: 'display',
-                routeattributes: 'waypoints,summary,shape,legs',
-                maneuverattributes: 'direction,action'
-            };
-            var i = 0;
-            this.gpspoints.forEach(function (element) {
-                var jsonelement = JSON.parse(element);
-                console.log(jsonelement.lat + ',' + jsonelement.lon);
-                if (jsonelement.lat != 0 && jsonelement.lon != 0) {
-                    routeRequestParams["waypoint" + i] = jsonelement.lat + ',' + jsonelement.lon;
-                    i = i + 1;
-                }
-            });
-
-            //console.log(routeRequestParams);
-
-
-            router.calculateRoute(routeRequestParams, this.onSuccess, this.onError);
-        },
-        onSuccess: function onSuccess(result) {
-            var route = result.response.route[0];
-            /*
-            * The styling of the route response on the map is entirely under the developer's control.
-            * A representitive styling can be found the full JS + HTML code of this example
-            * in the functions below:
-            */
-            this.addRouteShapeToMap(route);
-            this.addManueversToMap(route);
-
-            //  this.addWaypointsToPanel(route.waypoint);
-            if (this.field.showManuevers) {
-                this.addManueversToPanel(route);
-            }
-            if (this.field.showSummary) {
-                this.addSummaryToPanel(route.summary);
-            }
-        },
-        onError: function onError(error) {
-            alert('Can\'t reach the remote server');
-        },
-        openBubble: function openBubble(position, text) {
-            if (!this.bubble) {
-                this.bubble = new H.ui.InfoBubble(position,
-                // The FO property holds the province name.
-                { content: text });
-                this.ui.addBubble(this.bubble);
-            } else {
-                this.bubble.setPosition(position);
-                this.bubble.setContent(text);
-                this.bubble.open();
-            }
-        },
-        addRouteShapeToMap: function addRouteShapeToMap(route) {
-            var lineString = new H.geo.LineString(),
-                routeShape = route.shape,
-                polyline;
-
-            routeShape.forEach(function (point) {
-                var parts = point.split(',');
-                lineString.pushLatLngAlt(parts[0], parts[1]);
-            });
-
-            // Create an outline for the route polyline:
-            var routeOutline = new H.map.Polyline(lineString, {
-                style: {
-                    lineWidth: 5,
-                    strokeColor: 'rgba(0, 128, 255, 0.7)',
-                    lineTailCap: 'arrow-tail',
-                    lineHeadCap: 'arrow-head'
-                }
-            });
-            // Create a patterned polyline:
-            var routeArrows = new H.map.Polyline(lineString, {
-                style: {
-                    // lineWidth: 10,
-                    // fillColor: 'white',
-                    // strokeColor: 'rgba(255, 255, 255, 1)',
-                    // lineDash: [0, 2],
-                    // lineTailCap: 'arrow-tail',
-                    // lineHeadCap: 'arrow-head' 
-                }
-            });
-
-            // Add the polyline to the map
-            this.map.addObjects([routeOutline, routeArrows]);
-            // And zoom to its bounding rectangle
-            // map.getViewModel().setLookAtData({
-            // bounds: polyline.getBoundingBox()
-            // });
-        },
-        addManueversToMap: function addManueversToMap(route) {
-
-            var officeMarkup = '<svg xmlns="http://www.w3.org/2000/svg" style="fill:green;" viewBox="0 0 20 20"><path d="M11 7l1.44 2.16c.31.47 1.01.84 1.57.84H17V8h-3l-1.44-2.16a5.94 5.94 0 0 0-1.4-1.4l-1.32-.88a1.72 1.72 0 0 0-1.7-.04L4 6v5h2V7l2-1-3 14h2l2.35-7.65L11 14v6h2v-8l-2.7-2.7L11 7zm1-3a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
-                officeIcon = new H.map.Icon(officeMarkup, { size: { w: 56, h: 56 } });
-
-            var group = new H.map.Group(),
-                i,
-                j;
-            var officedata = JSON.parse(this.gpspoints[0]);
-
-            var marker = new H.map.Marker({
-                lat: officedata.lat,
-                lng: officedata.lon
-            }, {
-                icon: officeIcon
-            });
-            marker.instruction = "Office";
-            group.addObject(marker);
-
-            // Add a marker for each maneuver
-
-            // for (i = 1;  i < route.waypoint.length; i += 1) {
-            //         var marker =  new H.map.Marker({
-            //         lat: route.waypoint[i].originalPosition.latitude,
-            //         lng: route.waypoint[i].originalPosition.longitude,
-            //         }, {
-            //         icon : dotIcon
-            //         });
-            //         marker.instruction = "Some details about the customer"+i;
-            //         group.addObject(marker);
-
-            // }
-            var i = 1;
-            this.gpspoints.slice(1).forEach(function (element) {
-                var jsonelement = JSON.parse(element);
-                if (jsonelement.lat != 0 && jsonelement.lon != 0) {
-                    var svgMarkup = '<svg  xmlns:dc="http://purl.org/dc/elements/1.1/"  xmlns:cc="http://creativecommons.org/ns#"    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"    xmlns:svg="http://www.w3.org/2000/svg"    xmlns="http://www.w3.org/2000/svg"    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"    width="5.6444445mm"    height="9.847393mm"    viewBox="0 0 20 34.892337"    id="svg3455"    version="1.1"    inkscape:version="0.91 r13725"    sodipodi:docname="Map Pin.svg">   <defs      id="defs3457" />   <sodipodi:namedview      id="base"      pagecolor="#ffffff"      bordercolor="#666666"      borderopacity="1.0"      inkscape:pageopacity="0.0"      inkscape:pageshadow="2"      inkscape:zoom="12.181359"      inkscape:cx="8.4346812"      inkscape:cy="14.715224"      inkscape:document-units="px"      inkscape:current-layer="layer1"      showgrid="false"      inkscape:window-width="1024"      inkscape:window-height="705"      inkscape:window-x="-4"      inkscape:window-y="-4"      inkscape:window-maximized="1"      fit-margin-top="0"      fit-margin-left="0"      fit-margin-right="0"      fit-margin-bottom="0" />   <metadata      id="metadata3460">     <rdf:RDF>       <cc:Work          rdf:about="">         <dc:format>image/svg+xml</dc:format>         <dc:type            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />         <dc:title></dc:title>       </cc:Work>     </rdf:RDF>   </metadata>   <g      inkscape:label="Layer 1"      inkscape:groupmode="layer"      id="layer1"      transform="translate(-814.59595,-274.38623)">     <g        id="g3477"        transform="matrix(1.1855854,0,0,1.1855854,-151.17715,-57.3976)">       <path          sodipodi:nodetypes="sscccccsscs"          inkscape:connector-curvature="0"          id="path4337-3"          d="m 817.11249,282.97118 c -1.25816,1.34277 -2.04623,3.29881 -2.01563,5.13867 0.0639,3.84476 1.79693,5.3002 4.56836,10.59179 0.99832,2.32851 2.04027,4.79237 3.03125,8.87305 0.13772,0.60193 0.27203,1.16104 0.33416,1.20948 0.0621,0.0485 0.19644,-0.51262 0.33416,-1.11455 0.99098,-4.08068 2.03293,-6.54258 3.03125,-8.87109 2.77143,-5.29159 4.50444,-6.74704 4.56836,-10.5918 0.0306,-1.83986 -0.75942,-3.79785 -2.01758,-5.14062 -1.43724,-1.53389 -3.60504,-2.66908 -5.91619,-2.71655 -2.31115,-0.0475 -4.4809,1.08773 -5.91814,2.62162 z"          style="display:inline;opacity:1;fill:#ff4646;fill-opacity:1;stroke:#d73534;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />       <circle          r="6.0355"          cy="288.25278"          cx="823.03064"          id="path3049"          style="display:inline;opacity:1;fill:#590000;fill-opacity:1;stroke-width:0" />     </g>   </g>   		 <text x="49%" y="37%"           text-anchor="middle" 		  font-size = "9" 		  fill = "white"           >' + i + '</text> </svg> ';
-                    var dotIcon = new H.map.Icon(svgMarkup, { size: { w: 56, h: 56 } });
-                    var marker = new H.map.Marker({
-                        lat: jsonelement.lat,
-                        lng: jsonelement.lon
-                    }, {
-                        icon: dotIcon
-                    });
-                    marker.instruction = jsonelement.description;
-                    group.addObject(marker);
-                }
-                i = i + 1;
-            });
-
-            group.addEventListener('tap', function (evt) {
-                this.map.setCenter(evt.target.getGeometry());
-                this.openBubble(evt.target.getGeometry(), evt.target.instruction, this.ui);
-            }.bind(this), false);
-
-            this.map.setCenter({ lat: route.waypoint[0].originalPosition.latitude, lng: route.waypoint[0].originalPosition.longitude });
-            this.map.setZoom(9);
-            // Add the maneuvers group to the map
-            this.map.addObject(group);
-        },
-        addWaypointsToPanel: function addWaypointsToPanel(waypoints) {
-
-            var nodeH3 = document.createElement('h3'),
-                waypointLabels = [],
-                i;
-
-            for (i = 0; i < waypoints.length; i += 1) {
-                waypointLabels.push(waypoints[i].label);
-            }
-
-            nodeH3.textContent = waypointLabels.join(' - ');
-
-            this.routeInstructionsContainer.innerHTML = '';
-            this.routeInstructionsContainer.appendChild(nodeH3);
-        },
-        addSummaryToPanel: function addSummaryToPanel(summary) {
-            var summaryDiv = document.createElement('div'),
-                content = '';
-            var total = summary.distance * 0.001;
-            content += '<b>Total distance</b>: ' + total.toFixed(2) + 'km. <br/>';
-            content += '<b>Travel Time</b>: ' + this.toMMSS(summary.travelTime) + ' (in current traffic)';
-
-            summaryDiv.style.fontSize = '20px';
-            summaryDiv.style.marginLeft = '5%';
-            summaryDiv.style.marginRight = '5%';
-            summaryDiv.innerHTML = content;
-            this.routeInstructionsContainer.appendChild(summaryDiv);
-        },
-        addManueversToPanel: function addManueversToPanel(route) {
-
-            var nodeOL = document.createElement('ol'),
-                i,
-                j;
-
-            nodeOL.style.fontSize = 'small';
-            nodeOL.style.marginLeft = '3%';
-            nodeOL.style.marginRight = '5%';
-            nodeOL.style.marginBottom = '5%';
-            nodeOL.className = 'directions';
-
-            // Add a marker for each maneuver
-            for (i = 0; i < route.leg.length; i += 1) {
-                for (j = 0; j < route.leg[i].maneuver.length; j += 1) {
-                    // Get the next maneuver.
-                    var maneuver = route.leg[i].maneuver[j];
-
-                    var li = document.createElement('li'),
-                        spanArrow = document.createElement('span'),
-                        spanInstruction = document.createElement('span');
-
-                    spanArrow.className = 'arrow ' + maneuver.action;
-                    spanInstruction.innerHTML = maneuver.instruction;
-                    li.appendChild(spanArrow);
-                    li.appendChild(spanInstruction);
-
-                    nodeOL.appendChild(li);
-                }
-            }
-
-            this.routeInstructionsContainer.appendChild(nodeOL);
-        },
-        toMMSS: function toMMSS(time) {
-            return Math.floor(time / 60) + ' minutes ' + time % 60 + ' seconds.';
+      var router = platform.getRoutingService(),
+          routeRequestParams = {
+        mode: "fastest;car",
+        representation: "display",
+        routeattributes: "waypoints,summary,shape,legs",
+        maneuverattributes: "direction,action"
+      };
+      var i = 0;
+      this.gpspoints.forEach(function (element) {
+        var jsonelement = JSON.parse(element);
+        console.log(jsonelement.lat + "," + jsonelement.lon);
+        if (jsonelement.lat != 0 && jsonelement.lon != 0) {
+          routeRequestParams["waypoint" + i] = jsonelement.lat + "," + jsonelement.lon;
+          i = i + 1;
         }
+      });
+
+      //console.log(routeRequestParams);
+
+      router.calculateRoute(routeRequestParams, this.onSuccess, this.onError);
     },
-    mounted: function mounted() {
-        if (this.field.gpsPoints.length < 2) {
+    onSuccess: function onSuccess(result) {
+      var route = result.response.route[0];
+      /*
+       * The styling of the route response on the map is entirely under the developer's control.
+       * A representitive styling can be found the full JS + HTML code of this example
+       * in the functions below:
+       */
+      this.addRouteShapeToMap(route);
+      this.addManueversToMap(route);
 
-            //alert(this.field.customErrorMessage);
-            this.error = true;
-            return false;
+      //  this.addWaypointsToPanel(route.waypoint);
+      if (this.field.showManuevers) {
+        this.addManueversToPanel(route);
+      }
+      if (this.field.showSummary) {
+        this.addSummaryToPanel(route.summary);
+      }
+    },
+    onError: function onError(error) {
+      alert("Can't reach the remote server");
+    },
+    openBubble: function openBubble(position, text) {
+      if (!this.bubble) {
+        this.bubble = new H.ui.InfoBubble(position,
+        // The FO property holds the province name.
+        { content: text });
+        this.ui.addBubble(this.bubble);
+      } else {
+        this.bubble.setPosition(position);
+        this.bubble.setContent(text);
+        this.bubble.open();
+      }
+    },
+    addRouteShapeToMap: function addRouteShapeToMap(route) {
+      var lineString = new H.geo.LineString(),
+          routeShape = route.shape,
+          polyline;
+
+      routeShape.forEach(function (point) {
+        var parts = point.split(",");
+        lineString.pushLatLngAlt(parts[0], parts[1]);
+      });
+
+      // Create an outline for the route polyline:
+      var routeOutline = new H.map.Polyline(lineString, {
+        style: {
+          lineWidth: 5,
+          strokeColor: "rgba(0, 128, 255, 0.7)",
+          lineTailCap: "arrow-tail",
+          lineHeadCap: "arrow-head"
         }
-        this.routeInstructionsContainer = this.$refs.panel;
+      });
+      // Create a patterned polyline:
+      var routeArrows = new H.map.Polyline(lineString, {
+        style: {
+          // lineWidth: 10,
+          // fillColor: 'white',
+          // strokeColor: 'rgba(255, 255, 255, 1)',
+          // lineDash: [0, 2],
+          // lineTailCap: 'arrow-tail',
+          // lineHeadCap: 'arrow-head'
+        }
+      });
 
-        var platform = new H.service.Platform({
-            apikey: this.field.apiKey
-        });
+      // Add the polyline to the map
+      this.map.addObjects([routeOutline, routeArrows]);
+      // And zoom to its bounding rectangle
+      // map.getViewModel().setLookAtData({
+      // bounds: polyline.getBoundingBox()
+      // });
+    },
+    addManueversToMap: function addManueversToMap(route) {
+      var officeMarkup = '<svg xmlns="http://www.w3.org/2000/svg" style="fill:green;" viewBox="0 0 20 20"><path d="M11 7l1.44 2.16c.31.47 1.01.84 1.57.84H17V8h-3l-1.44-2.16a5.94 5.94 0 0 0-1.4-1.4l-1.32-.88a1.72 1.72 0 0 0-1.7-.04L4 6v5h2V7l2-1-3 14h2l2.35-7.65L11 14v6h2v-8l-2.7-2.7L11 7zm1-3a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
+          officeIcon = new H.map.Icon(officeMarkup, { size: { w: 56, h: 56 } });
 
-        var defaultLayers = platform.createDefaultLayers();
-        var map = new H.Map(this.$refs.map, defaultLayers.vector.normal.map);
-        // add a resize listener to make sure that the map occupies the whole container
-        window.addEventListener('resize', function () {
-            return map.getViewPort().resize();
-        });
-        this.map = map;
-        this.behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+      var group = new H.map.Group(),
+          i,
+          j;
+      var officedata = JSON.parse(this.gpspoints[0]);
 
-        // Create the default UI components
-        this.ui = H.ui.UI.createDefault(this.map, defaultLayers);
-        this.calculateRouteFromAtoB(platform);
+      var marker = new H.map.Marker({
+        lat: officedata.lat,
+        lng: officedata.lon
+      }, {
+        icon: officeIcon
+      });
+      marker.instruction = "Office";
+      group.addObject(marker);
+
+      // Add a marker for each maneuver
+
+      // for (i = 1;  i < route.waypoint.length; i += 1) {
+      //         var marker =  new H.map.Marker({
+      //         lat: route.waypoint[i].originalPosition.latitude,
+      //         lng: route.waypoint[i].originalPosition.longitude,
+      //         }, {
+      //         icon : dotIcon
+      //         });
+      //         marker.instruction = "Some details about the customer"+i;
+      //         group.addObject(marker);
+
+      // }
+      var i = 1;
+      this.gpspoints.slice(1).forEach(function (element) {
+        var jsonelement = JSON.parse(element);
+        if (jsonelement.lat != 0 && jsonelement.lon != 0) {
+          var svgMarkup = '<svg  xmlns:dc="http://purl.org/dc/elements/1.1/"  xmlns:cc="http://creativecommons.org/ns#"    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"    xmlns:svg="http://www.w3.org/2000/svg"    xmlns="http://www.w3.org/2000/svg"    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"    width="5.6444445mm"    height="9.847393mm"    viewBox="0 0 20 34.892337"    id="svg3455"    version="1.1"    inkscape:version="0.91 r13725"    sodipodi:docname="Map Pin.svg">   <defs      id="defs3457" />   <sodipodi:namedview      id="base"      pagecolor="#ffffff"      bordercolor="#666666"      borderopacity="1.0"      inkscape:pageopacity="0.0"      inkscape:pageshadow="2"      inkscape:zoom="12.181359"      inkscape:cx="8.4346812"      inkscape:cy="14.715224"      inkscape:document-units="px"      inkscape:current-layer="layer1"      showgrid="false"      inkscape:window-width="1024"      inkscape:window-height="705"      inkscape:window-x="-4"      inkscape:window-y="-4"      inkscape:window-maximized="1"      fit-margin-top="0"      fit-margin-left="0"      fit-margin-right="0"      fit-margin-bottom="0" />   <metadata      id="metadata3460">     <rdf:RDF>       <cc:Work          rdf:about="">         <dc:format>image/svg+xml</dc:format>         <dc:type            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />         <dc:title></dc:title>       </cc:Work>     </rdf:RDF>   </metadata>   <g      inkscape:label="Layer 1"      inkscape:groupmode="layer"      id="layer1"      transform="translate(-814.59595,-274.38623)">     <g        id="g3477"        transform="matrix(1.1855854,0,0,1.1855854,-151.17715,-57.3976)">       <path          sodipodi:nodetypes="sscccccsscs"          inkscape:connector-curvature="0"          id="path4337-3"          d="m 817.11249,282.97118 c -1.25816,1.34277 -2.04623,3.29881 -2.01563,5.13867 0.0639,3.84476 1.79693,5.3002 4.56836,10.59179 0.99832,2.32851 2.04027,4.79237 3.03125,8.87305 0.13772,0.60193 0.27203,1.16104 0.33416,1.20948 0.0621,0.0485 0.19644,-0.51262 0.33416,-1.11455 0.99098,-4.08068 2.03293,-6.54258 3.03125,-8.87109 2.77143,-5.29159 4.50444,-6.74704 4.56836,-10.5918 0.0306,-1.83986 -0.75942,-3.79785 -2.01758,-5.14062 -1.43724,-1.53389 -3.60504,-2.66908 -5.91619,-2.71655 -2.31115,-0.0475 -4.4809,1.08773 -5.91814,2.62162 z"          style="display:inline;opacity:1;fill:#ff4646;fill-opacity:1;stroke:#d73534;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />       <circle          r="6.0355"          cy="288.25278"          cx="823.03064"          id="path3049"          style="display:inline;opacity:1;fill:#590000;fill-opacity:1;stroke-width:0" />     </g>   </g>   		 <text x="49%" y="37%"           text-anchor="middle" 		  font-size = "9" 		  fill = "white"           >' + i + "</text> </svg> ";
+          var dotIcon = new H.map.Icon(svgMarkup, { size: { w: 56, h: 56 } });
+          var marker = new H.map.Marker({
+            lat: jsonelement.lat,
+            lng: jsonelement.lon
+          }, {
+            icon: dotIcon
+          });
+          marker.instruction = jsonelement.description;
+          group.addObject(marker);
+        }
+        i = i + 1;
+      });
+
+      group.addEventListener("tap", function (evt) {
+        this.map.setCenter(evt.target.getGeometry());
+        this.openBubble(evt.target.getGeometry(), evt.target.instruction, this.ui);
+      }.bind(this), false);
+
+      this.map.setCenter({
+        lat: route.waypoint[0].originalPosition.latitude,
+        lng: route.waypoint[0].originalPosition.longitude
+      });
+      this.map.setZoom(9);
+      // Add the maneuvers group to the map
+      this.map.addObject(group);
+    },
+    addWaypointsToPanel: function addWaypointsToPanel(waypoints) {
+      var nodeH3 = document.createElement("h3"),
+          waypointLabels = [],
+          i;
+
+      for (i = 0; i < waypoints.length; i += 1) {
+        waypointLabels.push(waypoints[i].label);
+      }
+
+      nodeH3.textContent = waypointLabels.join(" - ");
+
+      this.routeInstructionsContainer.innerHTML = "";
+      this.routeInstructionsContainer.appendChild(nodeH3);
+    },
+    addSummaryToPanel: function addSummaryToPanel(summary) {
+      var summaryDiv = document.createElement("div"),
+          content = "";
+      var total = summary.distance * 0.001;
+      content += "<b>Total distance</b>: " + total.toFixed(2) + "km. <br/>";
+      content += "<b>Travel Time</b>: " + this.toMMSS(summary.travelTime) + " (in current traffic)";
+
+      summaryDiv.style.fontSize = "20px";
+      summaryDiv.style.marginLeft = "5%";
+      summaryDiv.style.marginRight = "5%";
+      summaryDiv.innerHTML = content;
+      this.routeInstructionsContainer.appendChild(summaryDiv);
+    },
+    addManueversToPanel: function addManueversToPanel(route) {
+      var nodeOL = document.createElement("ol"),
+          i,
+          j;
+
+      nodeOL.style.fontSize = "small";
+      nodeOL.style.marginLeft = "3%";
+      nodeOL.style.marginRight = "5%";
+      nodeOL.style.marginBottom = "5%";
+      nodeOL.className = "directions";
+
+      // Add a marker for each maneuver
+      for (i = 0; i < route.leg.length; i += 1) {
+        for (j = 0; j < route.leg[i].maneuver.length; j += 1) {
+          // Get the next maneuver.
+          var maneuver = route.leg[i].maneuver[j];
+
+          var li = document.createElement("li"),
+              spanArrow = document.createElement("span"),
+              spanInstruction = document.createElement("span");
+
+          spanArrow.className = "arrow " + maneuver.action;
+          spanInstruction.innerHTML = maneuver.instruction;
+          li.appendChild(spanArrow);
+          li.appendChild(spanInstruction);
+
+          nodeOL.appendChild(li);
+        }
+      }
+
+      this.routeInstructionsContainer.appendChild(nodeOL);
+    },
+    toMMSS: function toMMSS(time) {
+      return Math.floor(time / 60) + " minutes " + time % 60 + " seconds.";
     }
+  },
+  mounted: function mounted() {
+    if (this.field.gpsPoints.length < 2) {
+      //alert(this.field.customErrorMessage);
+      this.error = true;
+      return false;
+    }
+    this.routeInstructionsContainer = this.$refs.panel;
+
+    var platform = new H.service.Platform({
+      apikey: this.field.apiKey
+    });
+
+    var defaultLayers = platform.createDefaultLayers();
+    var map = new H.Map(this.$refs.map, defaultLayers.vector.normal.map);
+    // add a resize listener to make sure that the map occupies the whole container
+    window.addEventListener("resize", function () {
+      return map.getViewPort().resize();
+    });
+    this.map = map;
+    this.behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    // Create the default UI components
+    this.ui = H.ui.UI.createDefault(this.map, defaultLayers);
+    this.calculateRouteFromAtoB(platform);
+  }
 });
 
 /***/ }),
@@ -1501,8 +1499,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "mt-4 mb-4" }, [
     _c("h4", { staticClass: "font-normal text-80 mb-2" }, [
-      _vm._v("Route Map")
+      _vm._v("Route Map" + _vm._s(this.field.title))
     ]),
+    _vm._v(" "),
     _c(
       "h4",
       {
@@ -29375,7 +29374,7 @@ var render = function() {
     },
     [
       _c("h4", { staticClass: "font-normal text-80 mb-2" }, [
-        _vm._v("Route Map")
+        _vm._v(_vm._s(this.field.title))
       ]),
       _c(
         "h4",
