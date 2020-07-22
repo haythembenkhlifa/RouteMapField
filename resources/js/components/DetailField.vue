@@ -1,6 +1,6 @@
 <template>
   <div class="mt-4 mb-4">
-    <h4 class="font-normal text-80 mb-2">Route Map{{this.field.title}}</h4>
+    <h4 class="font-normal text-80 mb-2">{{this.field.title}}</h4>
     <h4 v-show="error" class="text-danger">{{ this.field.customErrorMessage}}</h4>
     <div v-show="!error" ref="map" class="rounded-sm" style="height:600px;width:100%;"></div>
     <div v-show="!error" ref="panel" class="mt-4" style="margin-left: -5%;"></div>
