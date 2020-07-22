@@ -18,11 +18,6 @@ class RouteMapField extends Field
         return $this->withMeta(['apiKey' => $apikey]);
     }
 
-    public function title($title = "Route Map")
-    {
-        return $this->withMeta(['title' => $title]);
-    }
-
     public function gpsPoints($gpsPoints)
     {
         return $this->withMeta(['gpsPoints' => $gpsPoints]);
