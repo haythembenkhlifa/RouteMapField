@@ -1,7 +1,7 @@
 <template>
   <div class="mt-4 mb-4">
     <h4 class="font-normal text-80 mb-2">{{this.field.name}}</h4>
-    <h4 v-show="error" class="text-danger">{{ this.field.customErrorMessage}}</h4>
+    <h4 v-show="error" class="text-danger">{{ this.field.customErrorMessage }}</h4>
     <div v-show="!error" ref="map" class="rounded-sm" style="height:600px;width:100%;"></div>
     <div v-show="!error" ref="panel" class="mt-4" style="margin-left: -5%;"></div>
   </div>
@@ -24,7 +24,7 @@ export default {
       bubble: "",
       behavior: null,
       ui: null,
-      gpspoints: []
+      gpspoints: [],
     };
   },
   methods: {
@@ -37,10 +37,10 @@ export default {
           mode: "fastest;car",
           representation: "display",
           routeattributes: "waypoints,summary,shape,legs",
-          maneuverattributes: "direction,action"
+          maneuverattributes: "direction,action",
         };
       var i = 0;
-      this.gpspoints.forEach(element => {
+      this.gpspoints.forEach((element) => {
         var jsonelement = JSON.parse(element);
         console.log(jsonelement.lat + "," + jsonelement.lon);
         if (jsonelement.lat != 0 && jsonelement.lon != 0) {
@@ -94,7 +94,7 @@ export default {
         routeShape = route.shape,
         polyline;
 
-      routeShape.forEach(function(point) {
+      routeShape.forEach(function (point) {
         var parts = point.split(",");
         lineString.pushLatLngAlt(parts[0], parts[1]);
       });
@@ -105,8 +105,8 @@ export default {
           lineWidth: 5,
           strokeColor: "rgba(0, 128, 255, 0.7)",
           lineTailCap: "arrow-tail",
-          lineHeadCap: "arrow-head"
-        }
+          lineHeadCap: "arrow-head",
+        },
       });
       // Create a patterned polyline:
       var routeArrows = new H.map.Polyline(lineString, {
@@ -117,7 +117,7 @@ export default {
           // lineDash: [0, 2],
           // lineTailCap: 'arrow-tail',
           // lineHeadCap: 'arrow-head'
-        }
+        },
       });
 
       // Add the polyline to the map
@@ -140,10 +140,10 @@ export default {
       var marker = new H.map.Marker(
         {
           lat: officedata.lat,
-          lng: officedata.lon
+          lng: officedata.lon,
         },
         {
-          icon: officeIcon
+          icon: officeIcon,
         }
       );
       marker.instruction = "Office";
@@ -163,7 +163,7 @@ export default {
 
       // }
       var i = 1;
-      this.gpspoints.slice(1).forEach(element => {
+      this.gpspoints.slice(1).forEach((element) => {
         var jsonelement = JSON.parse(element);
         if (jsonelement.lat != 0 && jsonelement.lon != 0) {
           var svgMarkup =
@@ -174,10 +174,10 @@ export default {
           var marker = new H.map.Marker(
             {
               lat: jsonelement.lat,
-              lng: jsonelement.lon
+              lng: jsonelement.lon,
             },
             {
-              icon: dotIcon
+              icon: dotIcon,
             }
           );
           marker.instruction = jsonelement.description;
@@ -188,7 +188,7 @@ export default {
 
       group.addEventListener(
         "tap",
-        function(evt) {
+        function (evt) {
           this.map.setCenter(evt.target.getGeometry());
           this.openBubble(
             evt.target.getGeometry(),
@@ -201,7 +201,7 @@ export default {
 
       this.map.setCenter({
         lat: route.waypoint[0].originalPosition.latitude,
-        lng: route.waypoint[0].originalPosition.longitude
+        lng: route.waypoint[0].originalPosition.longitude,
       });
       this.map.setZoom(9);
       // Add the maneuvers group to the map
@@ -225,11 +225,15 @@ export default {
       var summaryDiv = document.createElement("div"),
         content = "";
       var total = summary.distance * 0.001;
-      content += "<b>Total distance</b>: " + total.toFixed(2) + "km. <br/>";
-      content +=
-        "<b>Travel Time</b>: " +
-        this.toMMSS(summary.travelTime) +
-        " (in current traffic)";
+      if (this.field.showdistance) {
+        content += "<b>Total distance</b>: " + total.toFixed(2) + "km. <br/>";
+      }
+      if (this.field.time) {
+        content +=
+          "<b>Travel Time</b>: " +
+          this.toMMSS(summary.travelTime) +
+          " (in current traffic)";
+      }
 
       summaryDiv.style.fontSize = "20px";
       summaryDiv.style.marginLeft = "5%";
@@ -271,7 +275,7 @@ export default {
     },
     toMMSS(time) {
       return Math.floor(time / 60) + " minutes " + (time % 60) + " seconds.";
-    }
+    },
   },
   mounted() {
     if (this.field.gpsPoints.length < 2) {
@@ -282,7 +286,7 @@ export default {
     this.routeInstructionsContainer = this.$refs.panel;
 
     var platform = new H.service.Platform({
-      apikey: this.field.apiKey
+      apikey: this.field.apiKey,
     });
 
     var defaultLayers = platform.createDefaultLayers();
@@ -295,7 +299,7 @@ export default {
     // Create the default UI components
     this.ui = H.ui.UI.createDefault(this.map, defaultLayers);
     this.calculateRouteFromAtoB(platform);
-  }
+  },
 };
 </script>
 <style>

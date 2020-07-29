@@ -47,4 +47,13 @@ class RouteMapField extends Field
     {
         return $this->withMeta(['customErrorMessage' => $errormessage]);
     }
+    public function showDistance($showdistance = false)
+    {
+        return $this->withMeta(['showdistance' => $showdistance]);
+    }
+
+    public function showTime($showtime = false)
+    {
+        return $this->withMeta(['time' => $showtime]);
+    }
 }
