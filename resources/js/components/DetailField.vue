@@ -231,6 +231,20 @@ export default {
         false
       );
 
+
+      cargroup.addEventListener(
+        "tap",
+        function (evt) {
+          this.map.setCenter(evt.target.getGeometry());
+          this.openBubble(
+            evt.target.getGeometry(),
+            evt.target.instruction,
+            this.ui
+          );
+        }.bind(this),
+        false
+      );
+
       this.map.setCenter({
         lat: route.waypoint[0].originalPosition.latitude,
         lng: route.waypoint[0].originalPosition.longitude,

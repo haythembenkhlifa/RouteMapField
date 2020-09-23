@@ -1,9 +1,21 @@
 <template>
-  <div class="mt-4 mb-4 ml-4 mr-4" style="margin-top:20px;">
-    <h4 class="font-normal text-80 mb-2">{{this.field.name}}</h4>
-    <h4 v-show="error" class="text-danger">{{ this.field.customErrorMessage}}</h4>
-    <div v-show="!error" ref="map" class="rounded-sm" style="height:600px;width:100%;"></div>
-    <div v-show="!error" ref="panel" class="mt-4" style="margin-left: -5%;"></div>
+  <div class="mt-4 mb-4 ml-4 mr-4" style="margin-top: 20px">
+    <h4 class="font-normal text-80 mb-2">{{ this.field.name }}</h4>
+    <h4 v-show="error" class="text-danger">
+      {{ this.field.customErrorMessage }}
+    </h4>
+    <div
+      v-show="!error"
+      ref="map"
+      class="rounded-sm"
+      style="height: 600px; width: 100%"
+    ></div>
+    <div
+      v-show="!error"
+      ref="panel"
+      class="mt-4"
+      style="margin-left: -5%"
+    ></div>
   </div>
 </template>
 
@@ -219,6 +231,19 @@ export default {
         }
         i = i + 1;
       });
+
+      cargroup.addEventListener(
+        "tap",
+        function (evt) {
+          this.map.setCenter(evt.target.getGeometry());
+          this.openBubble(
+            evt.target.getGeometry(),
+            evt.target.instruction,
+            this.ui
+          );
+        }.bind(this),
+        false
+      );
 
       group.addEventListener(
         "tap",
