@@ -25,6 +25,7 @@ export default {
       behavior: null,
       ui: null,
       gpspoints: [],
+      gpsDriverPoints: [],
     };
   },
   methods: {
@@ -42,7 +43,7 @@ export default {
       var i = 0;
       this.gpspoints.forEach((element) => {
         var jsonelement = JSON.parse(element);
-        console.log(jsonelement.lat + "," + jsonelement.lon);
+        //console.log(jsonelement.lat + "," + jsonelement.lon);
         if (jsonelement.lat != 0 && jsonelement.lon != 0) {
           routeRequestParams["waypoint" + i] =
             jsonelement.lat + "," + jsonelement.lon;
@@ -135,6 +136,8 @@ export default {
       var group = new H.map.Group(),
         i,
         j;
+
+      var cargroup = new H.map.Group();
       var officedata = JSON.parse(this.gpspoints[0]);
 
       var marker = new H.map.Marker(
@@ -185,6 +188,35 @@ export default {
         }
         i = i + 1;
       });
+      console.log("gps driver points");
+      console.log(this.field.gpsDriverPoints);
+      var i = 1;
+      this.gpsDriverPoints.forEach((element) => {
+        var jsonelement = JSON.parse(element);
+        if (jsonelement.lat != 0 && jsonelement.lon != 0) {
+          if (this.field.svgCar) {
+            var svgCar = this.field.svgCar;
+          } else {
+            var svgCar =
+              '<svg width="496.246" height="496.246" xmlns="http://www.w3.org/2000/svg"> <g> <title>background</title> <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/> </g> <g> <title>Layer 1</title> <path id="svg_1" fill="#FF7F00" d="m471.135,68.332l-220.35,0l0,6.451c0,-15.328 -12.446,12.69 -27.758,12.69l-129.559,0c-15.321,0 -27.75,12.43 -27.75,27.75l-61.291,205.895c0,15.344 12.414,27.758 27.758,27.758l140.745,0l50.089,0l248.115,0c6.845,0 12.383,-5.537 12.383,-12.367l0,-255.81c0.008,-6.837 -5.53,-12.367 -12.382,-12.367z"/> <path id="svg_2" fill="#E56505" d="m18.188,274.857l-13.761,46.262c0,15.344 12.414,27.758 27.758,27.758l140.745,0l50.089,0l248.115,0c6.845,0 12.383,-5.537 12.383,-12.367l0,-61.653l-465.329,0z"/> <path id="svg_3" fill="#528099" d="m153.624,114.475l-87.836,0c0,0.252 -0.071,0.496 -0.071,0.756l-26.726,89.773c1.434,0.221 2.867,0.457 4.372,0.457l110.261,0c15.321,0 27.758,-12.43 27.758,-27.758l0,-35.47c0,-15.344 -12.438,-27.758 -27.758,-27.758z"/> <path id="svg_4" fill="#C1E5F4" d="m54.918,282.199c0,14.249 -3.277,25.813 -7.333,25.813c-4.033,0 -7.318,-11.571 -7.318,-25.813c0,-14.281 3.285,-25.836 7.318,-25.836c4.056,-0.001 7.333,11.555 7.333,25.836z"/> <path id="svg_5" fill="#D9F5FF" d="m47.584,308.019c-4.033,0 -7.318,-11.571 -7.318,-25.813c0,-14.281 3.285,-25.836 7.318,-25.836"/> <g id="svg_6"> <path id="svg_7" fill="#1D5777" d="m108.19,205.462l71.719,-71.719c-2.576,-7.971 -8.562,-14.336 -16.321,-17.337l-89.049,89.056l33.651,0z"/> <path id="svg_8" fill="#1D5777" d="m125.424,205.462l28.199,0c15.321,0 27.758,-12.43 27.758,-27.758l0,-28.199l-55.957,55.957z"/> <path id="svg_9" fill="#1D5777" d="m93.538,114.475l-27.75,0c0,0.252 -0.071,0.496 -0.071,0.756l-11.485,38.534l39.306,-39.29z"/> <path id="svg_10" fill="#1D5777" d="m496.246,359.944c0,5.711 -4.632,10.342 -10.342,10.342l-475.569,0c-5.727,0.008 -10.335,-4.631 -10.335,-10.342l0,-35.604c0,-5.727 4.608,-10.342 10.335,-10.342l475.561,0c5.719,0 10.342,4.624 10.342,10.342l0,35.604l0.008,0z"/> </g> <path id="svg_11" fill="#1E759B" d="m485.904,313.998l-475.569,0c-5.727,0 -10.335,4.624 -10.335,10.35l0,7.845c0,5.711 4.608,10.335 10.335,10.335l475.561,0c5.719,0 10.342,-4.632 10.342,-10.335l0,-7.845c0.008,-5.726 -4.623,-10.35 -10.334,-10.35z"/> <path id="svg_12" fill="#FFC41F" d="m135.459,376.596c0,19.259 -15.636,34.895 -34.911,34.895c-19.259,0 -34.895,-15.628 -34.895,-34.895c0,-19.291 15.628,-34.926 34.895,-34.926c19.276,-0.001 34.911,15.627 34.911,34.926z"/> <path id="svg_13" fill="#FFA522" d="m100.557,341.669c19.267,0 34.911,15.628 34.911,34.926c0,19.259 -15.636,34.895 -34.911,34.895"/> <path id="svg_14" fill="#1A3D5B" d="m100.557,427.914c-28.302,0 -51.326,-23.032 -51.326,-51.326c0,-28.325 23.024,-51.342 51.326,-51.342c28.31,0 51.334,23.016 51.334,51.342c-0.008,28.294 -23.032,51.326 -51.334,51.326zm0,-69.813c-10.185,0 -18.471,8.302 -18.471,18.495c0,10.177 8.287,18.464 18.471,18.464c10.193,0 18.495,-8.287 18.495,-18.464c-0.008,-10.193 -8.302,-18.495 -18.495,-18.495z"/> <circle id="svg_15" fill="#FFC41F" r="34.911" cy="376.58" cx="402.038"/> <path id="svg_16" fill="#FFA522" d="m377.328,351.894c13.627,-13.619 35.745,-13.619 49.365,0c13.635,13.627 13.619,35.738 0,49.373"/> <path id="svg_17" fill="#1A3D5B" d="m438.319,412.877c-20.023,20.023 -52.586,20.023 -72.609,0c-20.015,-20.023 -20.015,-52.571 0,-72.586c20.023,-20.039 52.586,-20.039 72.609,0c20.008,20.015 20.008,52.563 0,72.586zm-49.357,-49.373c-7.223,7.207 -7.223,18.928 0,26.136c7.2,7.207 18.913,7.207 26.12,0s7.207,-18.928 0,-26.136c-7.207,-7.191 -18.92,-7.191 -26.12,0z"/> <g id="svg_22"/> <g id="svg_23"/> <g id="svg_24"/> <g id="svg_25"/> <g id="svg_26"/> <g id="svg_27"/> <g id="svg_28"/> <g id="svg_29"/> <g id="svg_30"/> <g id="svg_31"/> <g id="svg_32"/> <g id="svg_33"/> <g id="svg_34"/> <g id="svg_35"/> <g id="svg_36"/> <text style="cursor: text;" stroke="#000" transform="matrix(11.14260180072226,0,0,8.676305318600482,-2540.9601660040653,-957.8356241550758) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="15" id="svg_37" y="137.57516" x="246.62299" stroke-width="0" fill="#000000">' +
+              i +
+              "</text> </g> </svg>";
+          }
+          var dotIcon = new H.map.Icon(svgCar, { size: { w: 56, h: 56 } });
+          var marker = new H.map.Marker(
+            {
+              lat: jsonelement.lat,
+              lng: jsonelement.lon,
+            },
+            {
+              icon: dotIcon,
+            }
+          );
+          marker.instruction = jsonelement.description;
+          cargroup.addObject(marker);
+        }
+        i = i + 1;
+      });
 
       group.addEventListener(
         "tap",
@@ -206,6 +238,7 @@ export default {
       this.map.setZoom(9);
       // Add the maneuvers group to the map
       this.map.addObject(group);
+      this.map.addObject(cargroup);
     },
     addWaypointsToPanel(waypoints) {
       var nodeH3 = document.createElement("h3"),
@@ -283,6 +316,9 @@ export default {
       this.error = true;
       return false;
     }
+
+    this.gpsDriverPoints = this.field.gpsDriverPoints;
+
     this.routeInstructionsContainer = this.$refs.panel;
 
     var platform = new H.service.Platform({

@@ -56,4 +56,12 @@ class RouteMapField extends Field
     {
         return $this->withMeta(['time' => $showtime]);
     }
+    public function svgCar($svgCar)
+    {
+        return $this->withMeta(['svgCar' => $svgCar]);
+    }
+    public function gpsDriverPoints(array $gpsDriverPoints = [])
+    {
+        return $this->withMeta(['gpsDriverPoints' => $gpsDriverPoints]);
+    }
 }
