@@ -23,10 +23,10 @@ class RouteMapField extends Field
         return $this->withMeta(['gpsPoints' => $gpsPoints]);
     }
 
-    // public function svgMarker($svgmarker)
-    // {
-    //     return $this->withMeta(['svgMarker' => $svgmarker]);
-    // }
+    public function svgMarker($svgmarker)
+    {
+        return $this->withMeta(['svgMarker' => $svgmarker]);
+    }
 
     public function svgOfficeMarker($svgofficemarker)
     {
