@@ -31,7 +31,9 @@ composer require haythem/route-map-field
                       //->svgMarker('')
                       ->showSummary(true),
                       //->showManuevers(true),
-                      ->customErrorMessage("There not enough GPS Points"), 
+                      ->addCircleToMap(-34.1380995,18.3566494,10000,"rgba(255, 87, 34, 0.5)","rgba(255, 87, 34, 0.5)")
+                      ->customErrorMessage("There not enough GPS Points"),
+
 
 
 ## Result 1
