@@ -43,7 +43,7 @@ export default {
   methods: {
     calculateRouteFromAtoB(platform) {
       this.gpspoints = this.field.gpsPoints;
-      console.log(this.gpspoints);
+      //console.log(this.gpspoints);
 
       var router = platform.getRoutingService(),
         routeRequestParams = {
@@ -77,7 +77,7 @@ export default {
       this.addRouteShapeToMap(route);
       this.addManueversToMap(route);
 
-      //  this.addWaypointsToPanel(route.waypoint);
+       this.addWaypointsToPanel(route.waypoint);
       if (this.field.showManuevers) {
         this.addManueversToPanel(route);
       }
@@ -148,7 +148,8 @@ export default {
       var group = new H.map.Group(),
         i,
         j;
-
+      console.log("gps driver points");
+      console.log(this.gpspoints);
       var cargroup = new H.map.Group();
       var officedata = JSON.parse(this.gpspoints[0]);
 
@@ -265,14 +266,37 @@ export default {
         false
       );
 
+    if (this.gpspoints.length < 2) {
+            this.map.setCenter({
+        lat: JSON.parse(this.gpspoints[0]).lat,
+        lng: JSON.parse(this.gpspoints[0]).lon,
+      });
+    }
+    else{
       this.map.setCenter({
         lat: route.waypoint[0].originalPosition.latitude,
         lng: route.waypoint[0].originalPosition.longitude,
       });
+    }
       this.map.setZoom(9);
       // Add the maneuvers group to the map
       this.map.addObject(group);
       this.map.addObject(cargroup);
+      if (this.field.circle_lat && this.field.circle_lng && this.field.circle_radius) {
+            this.map.addObject(new H.map.Circle(
+                // The central point of the circle
+                {lat:this.field.circle_lat, lng:this.field.circle_lng},
+                // The radius of the circle in meters
+                this.field.circle_radius,
+                {
+                style: {
+                    strokeColor: this.field.circle_stroke_color,// Color of the perimeter
+                    lineWidth: this.field.line_width,
+                    fillColor: this.field.circle_color // Color of the circle
+                }
+                }
+            ));
+      }
     },
     addWaypointsToPanel(waypoints) {
       var nodeH3 = document.createElement("h3"),
@@ -345,13 +369,14 @@ export default {
     },
   },
   mounted() {
-    if (this.field.gpsPoints.length < 2) {
-      //alert(this.field.customErrorMessage);
+    if (this.field.gpsPoints.length < 1) {
+      alert(this.field.customErrorMessage);
       this.error = true;
       return false;
     }
 
     this.gpsDriverPoints = this.field.gpsDriverPoints;
+    this.gpspoints = this.field.gpsPoints;
 
     this.routeInstructionsContainer = this.$refs.panel;
 
@@ -368,7 +393,12 @@ export default {
 
     // Create the default UI components
     this.ui = H.ui.UI.createDefault(this.map, defaultLayers);
-    this.calculateRouteFromAtoB(platform);
+    //this.calculateRouteFromAtoB(platform);
+    if (this.field.gpsPoints.length == 1) {
+    this.addManueversToMap();
+    }else{
+        this.calculateRouteFromAtoB(platform);
+    }
   },
 };
 </script>

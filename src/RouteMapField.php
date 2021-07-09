@@ -64,4 +64,17 @@ class RouteMapField extends Field
     {
         return $this->withMeta(['gpsDriverPoints' => $gpsDriverPoints]);
     }
+
+
+    public function addCircleToMap($circle_lat,$circle_lng,$circle_radius,$circle_color = "rgba(220,220,220,0.8)",$circle_stroke_color = "rgba(220,220,220,0.8)",$line_width=0)
+    {
+        return $this->withMeta([
+            'circle_lat' => $circle_lat,
+            'circle_lng' => $circle_lng,
+            'circle_radius' => $circle_radius,
+            'circle_color' => $circle_color,
+            'circle_stroke_color' => $circle_stroke_color,
+            'line_width' => $line_width,
+        ]);
+    }
 }
