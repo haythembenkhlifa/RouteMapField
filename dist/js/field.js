@@ -1262,7 +1262,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.addRouteShapeToMap(route);
       this.addManueversToMap(route);
 
-      this.addWaypointsToPanel(route.waypoint);
+      //this.addWaypointsToPanel(route.waypoint);
       if (this.field.showManuevers) {
         this.addManueversToPanel(route);
       }

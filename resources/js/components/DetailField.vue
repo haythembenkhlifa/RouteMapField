@@ -77,7 +77,7 @@ export default {
       this.addRouteShapeToMap(route);
       this.addManueversToMap(route);
 
-       this.addWaypointsToPanel(route.waypoint);
+       //this.addWaypointsToPanel(route.waypoint);
       if (this.field.showManuevers) {
         this.addManueversToPanel(route);
       }
