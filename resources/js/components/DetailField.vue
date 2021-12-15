@@ -52,18 +52,41 @@ export default {
           routeattributes: "waypoints,summary,shape,legs",
           maneuverattributes: "direction,action",
         };
-      var i = 0;
-      this.gpspoints.forEach((element) => {
+
+
+
+
+        var origin = this.gpspoints[0];
+        var origin = JSON.parse(origin);
+        if (origin.lat != 0 && origin.lon != 0) {
+            routeRequestParams["origin"] =  origin.lat + "," + origin.lon;
+        }
+
+      this.gpspoints.forEach((element,index) => {
+          console.log("Index");
+          console.log(index);
         var jsonelement = JSON.parse(element);
         //console.log(jsonelement.lat + "," + jsonelement.lon);
+        //  'via': new H.service.Url.MultiValueQueryParameter(['48.8664,2.3234', '48.8703,2.3499']),
+
         if (jsonelement.lat != 0 && jsonelement.lon != 0) {
-          routeRequestParams["waypoint" + i] =
-            jsonelement.lat + "," + jsonelement.lon;
-          i = i + 1;
+            switch (index) {
+                case this.gpspoints.length:
+                    routeRequestParams["destination"] =
+                    jsonelement.lat + "," + jsonelement.lon;
+                break;
+                default:
+                    routeRequestParams["waypoint" + index] =
+                    jsonelement.lat + "," + jsonelement.lon;
+                break;
+            }
         }
+
       });
 
-      //console.log(routeRequestParams);
+      console.log("routeRequestParams");
+
+      console.log(routeRequestParams);
 
       router.calculateRoute(routeRequestParams, this.onSuccess, this.onError);
     },
@@ -86,6 +109,7 @@ export default {
       }
     },
     onError(error) {
+      console.log(error);
       alert("Can't reach the remote server");
     },
     openBubble(position, text) {
@@ -179,6 +203,10 @@ export default {
 
       // }
       var i = 1;
+      if(this.field.routeFinishAtOrigin)
+      {
+          this.gpspoints.pop();
+      }
       this.gpspoints.slice(1).forEach((element) => {
         var jsonelement = JSON.parse(element);
         if (jsonelement.lat != 0 && jsonelement.lon != 0) {

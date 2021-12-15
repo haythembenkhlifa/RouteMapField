@@ -66,7 +66,7 @@ class RouteMapField extends Field
     }
 
 
-    public function addCircleToMap($circle_lat,$circle_lng,$circle_radius,$circle_color = "rgba(220,220,220,0.8)",$circle_stroke_color = "rgba(220,220,220,0.8)",$line_width=0)
+    public function addCircleToMap($circle_lat, $circle_lng, $circle_radius, $circle_color = "rgba(220,220,220,0.8)", $circle_stroke_color = "rgba(220,220,220,0.8)", $line_width = 0)
     {
         return $this->withMeta([
             'circle_lat' => $circle_lat,
@@ -76,5 +76,12 @@ class RouteMapField extends Field
             'circle_stroke_color' => $circle_stroke_color,
             'line_width' => $line_width,
         ]);
+    }
+
+
+
+    public function routeFinishAtOrigin(bool $routeFinishAtOrigin = true)
+    {
+        return $this->withMeta(['routeFinishAtOrigin' => $routeFinishAtOrigin]);
     }
 }
